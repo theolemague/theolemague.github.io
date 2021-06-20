@@ -1,5 +1,6 @@
 
-function CV() {
+class CV extends React.Component {
+  render(){
     return (
       <h1 class="page-title">
           <div class="page-title__text">My CV</div>
@@ -7,6 +8,7 @@ function CV() {
       </h1>
     );
   }
+}
   
-  export default CV;
+export default CV;
   

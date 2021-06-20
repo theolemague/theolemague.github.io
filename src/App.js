@@ -1,24 +1,13 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import CV from './compenents/CV';
 import NavBar from './compenents/NavBar';
-import Works from './compenents/Works'
+import Container from './compenents/Container'
 
 function App() {
   return (
     <div class="wrapper">
-      <NavBar />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/works">
-            <Works />
-          </Route>
-          <Route path="/cv">
-            <CV />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <NavBar/>
+      <Container/>
       <p>
         In construction...
       </p>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   render(){
@@ -9,9 +10,9 @@ class NavBar extends React.Component {
           <a href="/" class="logo">Theo Le Magueresse</a>
 
           <ul class="menu">
-            <li class="menu__entry"><a href="/">Home</a></li>
-            <li class="menu__entry"><a href="/blog">Blog</a></li>
-            <li class="menu__entry"><a href="/cv">CV</a></li>
+            <li class="menu__entry"><Link to="/">Home</Link></li>
+            <li class="menu__entry"><Link to="/works/">Blog</Link></li>
+            <li class="menu__entry"><Link to="/cv/">CV</Link></li>
           </ul>
         </div>
 

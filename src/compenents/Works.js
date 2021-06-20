@@ -1,3 +1,4 @@
+import React from 'react'
 
 class Works extends React.Component {
   render(){

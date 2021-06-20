@@ -1,3 +1,4 @@
+import React from 'react'
 
 class CV extends React.Component {
   render(){

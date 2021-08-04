@@ -1,15 +1,15 @@
 import React from 'react'
+import { labels } from '../configs/labels';
+import { PageTitle } from './NavBar';
 
-class CV extends React.Component {
-  render(){
-    return (
-      <h1 class="page-title">
-          <div class="page-title__text">My CV</div>
-          <div class="page-title__subtitle">Here is my cv in french and english version</div>
-      </h1>
-    );
-  }
-}
-  
-export default CV;
+export default function CV(props){
+  return (
+    <div>
+      <PageTitle language={props.language} page="cv"/>
+      <p>
+        In construction...
+      </p>
+    </div>
+  );
+};
   

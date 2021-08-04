@@ -1,14 +1,18 @@
 import React from 'react'
+import { PageTitle } from './NavBar';
+import { labels } from '../configs/labels';
 
-class Home extends React.Component {
-  render(){
-    return (
-      <h1 class="page-title">
-        <div class="page-title__text">Home</div>
-        <div class="page-title__subtitle">welcome to my website</div>
-      </h1>
-    );
-  }
+export default function Home(props){
+
+  return (
+    <div>
+      <PageTitle language={props.language} page="home"/>
+      {
+      labels[props.language]['pages']['home']['text'].map( val=>{
+        return <p>{val}</p>
+      })
+      }
+    </div>
+  );
 }
-
-export default Home;
+  

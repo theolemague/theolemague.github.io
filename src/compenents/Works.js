@@ -1,14 +1,66 @@
 import React from 'react'
+import { Octokit } from 'octokit';
+import { PageTitle } from './NavBar';
 
-class Works extends React.Component {
-  render(){
-    return (
-      <h1 class="page-title">
-        <div class="page-title__text">My works</div>
-        <div class="page-title__subtitle">Here are some of my projects</div>
-      </h1>
-    );
-  }
+export default function Works(props){
+
+  return (
+    <div>
+      <PageTitle language={props.language} page="works"/>
+      
+      <p>
+        In construction ! Trying to understand octokit documentation...
+      </p>
+    </div>
+  );
 }
 
-export default Works;
+
+/**
+ * Recover the README.md file of the past repo
+ * @param {String} repo Git repo name
+ */
+function getReadMe(repo){
+  // Get the repo readme link
+  const octokit = new Octokit()
+  octokit.rest.repos.getContent({
+    owner:"theolemague",
+    repo:repo,
+    path:"README.md"
+  })
+  .then((res)=>{
+    console.log(repo+" "+res)
+    // fetch(res.data.download_url)
+    // .then(res=>{
+      //   // console.log(res)
+      
+      //   return res.text()})
+      // .then(res =>{
+        //   // console.log(res)
+        //   return res;
+        // });
+  });
+      // .catch(err=>{
+        //   console.log(err)
+        // })
+}
+
+/**
+ * Recover the list of my repositories
+ * 
+ */
+function getReposList(){  
+  const octokit = new Octokit()
+  octokit.request("GET /users/{user}/repos", {
+    user: "theolemague",
+    type: "public",
+  }).then(res=>{
+    for (var i in res.data){
+      // const readme = this.getReadMe(res.data[i].name);
+      // console.log(res.data[i].name + readme)
+      console.log(res.data[i].name)    
+    }
+    this.setState({repo : res.data.length })
+  });
+
+}

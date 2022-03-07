@@ -1,38 +1,38 @@
 import { Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import NavBar from './compenents/NavBar';
 import Home from './compenents/Home';
-import CV from './compenents/CV';
+import Me from './compenents/Me';
 import Works from './compenents/Works';
 import NotFound from './compenents/NotFound';
+import Resume from './compenents/Resume';
 
+const App = () => {
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'fr')
+  const [width, setWidth] = useState(window.innerWidth);
 
-
-export default function App() {
-  const [language, setLanguage] = useState(localStorage.getItem("language") || "fr")
-
-  function saveLanguage(newLanguage){
-    setLanguage(newLanguage)
-    localStorage.setItem("language", newLanguage)
-  }
+  const handleResize = useCallback(() => setWidth(window.innerWidth), []);
+  
+  useEffect( () =>{
+    window.addEventListener('resize', handleResize);
+    return ()=> window.removeEventListener('resize', handleResize);
+  }, [handleResize])
 
   return (  
-    <div className="wrapper">
-      <div className="language">
-        <select value={language}onChange={e => saveLanguage(e.target.value)}>
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-        </select>
-      </div>
-      <NavBar language={language} />
-      <Switch>
-        <Route exact path='/'><Home language={language}></Home></Route>
-        <Route path='/works/'><Works language={language}></Works></Route>
-        <Route path='/cv/'><CV language={language}></CV></Route> 
-        <Route ><NotFound language={language}></NotFound></Route>
-      </Switch>
+    <div className='content'>
+      <NavBar language={language} setLanguage={setLanguage} width={width}/>
+      <main>
+        <Switch>
+          <Route exact path='/'><Home language={language}></Home></Route>
+          <Route path='/works/'><Works language={language}></Works></Route>
+          <Route path='/me/'><Me language={language}></Me></Route> 
+          <Route path='/resume/'><Resume language={language}></Resume></Route> 
+          <Route ><NotFound language={language}></NotFound></Route>
+        </Switch>
+      </main>
     </div>
   );
 }
 
+export default App

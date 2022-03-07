@@ -1,0 +1,83 @@
+{
+    "language" : {
+        "fr" : "Français", 
+        "en" : "English"
+    },
+    "en" : {
+        "title" : {
+            "home" : "Hello world ! I am ",
+            "home-sub": "Engineering student in computer sciences",
+            "me" :"About me",
+            "me-sub": "Here is my background",
+            "works" :"My works",
+            "works-sub" : "Here are some of the works I have done which are on my GitHub",
+            "education" : "02. educations",
+            "work-experience" : "01. work experiences",
+            "project" : "04. projects",
+            "skills" : "03. skills",
+            "personal-interest" : "05. personal interests"
+        },
+        "navbar" : {
+            "home" : "Home",
+            "works" : "Works",
+            "me" : "About me",
+            "resume" : "My resume"
+        },
+        "labels": {
+            "years-old" : "years old",
+            "home-link" : "Check my works",
+            "from" : "From",
+            "to" : "to",
+            "theme": "Choose a theme",
+            "background": "Choose a background color",
+            "text-color": "Choose a text color",
+            "caption-color": "Choose a capton color",
+            "highlight-color": "Choose a higlight color",
+            "title-font": "Choose a title font",
+            "text-font": "Choose a text font",
+            "print": "Print"
+        },
+        "text" : {
+            "home" : "I am Théo Le Magueresse, a 5th year student at the INSA engineering school in Lyon in the Telecommunications department. I am currently on exchange at the Stockholm University for the next comming year (from August 2021 to June 2022). Before that, I obtained a DUT (University Diploma in Technology, a 2-years french diploma) in Electrical Engineering and Industrial Computing (GEII) at the IUT (University Institute of Technology) of Angers."
+        }
+    },
+    "fr" : {
+        "title" : {
+            "home" : "Hello world ! Je suis",
+            "home-sub": "Étudiant ingénieur en informatique",
+            "me" :"A propos de moi",
+            "me-sub": "Voici mon parcours",
+            "works" :"Mes travaux",
+            "works-sub" : "Voici quelques-uns des travaux que j'ai réalisés qui se trouvent sur mon GitHub",
+            "education" : "02. formations",
+            "work-experience" : "01. experiences professionnelles",
+            "project" : "04. projets",
+            "skills" : "03. compétences",
+            "personal-interest" : "05. interêts personnels"
+        },
+        "navbar" : {
+            "home" : "Accueil",
+            "works" : "Travaux",
+            "me" : "A propos",
+            "resume" : "Mon CV"
+        },
+        "labels": {
+            "years-old" : "ans",
+            "home-link" : "Découvrez mes projects",
+            "from" : "De",
+            "to" : "à",
+            "theme": "Choisissez un theme",
+            "background": "Choisissez une couleur d'arrière plan",
+            "text-color": "Choisissez une couleur de text",
+            "caption-color": "Choisissez une couleur de sous-titre",
+            "highlight-color": "Choisissez une couleur de style",
+            "title-font": "Choisissez une police de titre",
+            "text-font": "Choisissez une police de text",
+            "print": "Imprimer"
+        },
+        "text" : {
+            "home" : "Je suis Théo Le Magueresse, étudiant en 5ème année de l'école d'ingénieurs INSA de Lyon dans le département Télécommunication. Je suis actuellement en échange à l'université de Stockholm pendant 1 an (de août 2021 à juin 2022). Avant cela, j'ai obtenu un DUT en Génie Électrique et Informatique Industrielle (GEII) à l'IUT d'Angers."
+        }
+        
+    }
+}

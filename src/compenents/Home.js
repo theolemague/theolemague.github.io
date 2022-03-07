@@ -1,18 +1,18 @@
 import React from 'react'
-import { PageTitle } from './NavBar';
-import { labels } from '../configs/labels';
+import labels from '../configs/labels.json';
+import cv from '../configs/cv.json';
+import { Link } from 'react-router-dom';
 
-export default function Home(props){
-
+const Home = (props) => {
   return (
-    <div>
-      <PageTitle language={props.language} page="home"/>
-      {
-      labels[props.language]['pages']['home']['text'].map( val=>{
-        return <p>{val}</p>
-      })
-      }
-    </div>
+    <section>
+      <div className='intro'><h1>{labels[props.language]['title']['home']}</h1></div>
+      <div className='name'><h2>{cv['profile']['name']}</h2></div>
+      <div className='situation'><h3>{labels[props.language]['title']['home-sub']}</h3></div>
+      <div className='presentation'><p>{labels[props.language]['text']['home']}</p></div>
+      <Link className='link' to='/works'>{labels[props.language]['labels']['home-link']}</Link>
+    </section>
   );
 }
-  
+
+export default Home

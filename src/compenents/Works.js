@@ -1,19 +1,18 @@
 import React from 'react'
 import { Octokit } from 'octokit';
-import { PageTitle } from './NavBar';
+import labels from '../configs/labels.json';
 
-export default function Works(props){
-
+const Works = (props) => {
+  
   return (
     <div>
-      <PageTitle language={props.language} page="works"/>
-      
       <p>
         In construction ! Trying to understand octokit documentation...
       </p>
     </div>
   );
 }
+export default Works
 
 
 /**

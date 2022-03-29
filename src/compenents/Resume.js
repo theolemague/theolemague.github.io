@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import confLabels from '../configs/labels.json';
 import confCV from '../configs/cv.json';
 import jsPDF from 'jspdf';
@@ -10,9 +10,7 @@ const Resume = (props) => {
   const themes = confCV['themes']
   const fonts = confCV['fonts']
   const colors = confCV['colors']
-
   
-  const [theme, setTheme] = useState(0);
   const [background, setBackground] = useState(themes[0]['values']['background']);
   const [textColor, setTextColor] = useState(themes[0]['values']['text-color']);
   const [captionColor, setCaptionColor] = useState(themes[0]['values']['caption-color']);
@@ -22,7 +20,9 @@ const Resume = (props) => {
   
   const selectsColor = { 'background': setBackground, 'text-color': setTextColor, 'caption-color' : setCaptionColor, 'highlight-color' : setHighlightColor}
   const selectsFont = { 'title-font': setTitleFont, 'text-font': setTextFont}
+
   
+  // TODO continue this page age refomate it
 
   const buildPdf = (e) => {
     e.preventDefault()
@@ -44,7 +44,6 @@ const Resume = (props) => {
   }
 
   const handleThemeChange = (t) => {
-    setTheme(t)
     setBackground(themes[t]['values']['background'])
     setTextColor(themes[t]['values']['text-color'])
     setCaptionColor(themes[t]['values']['caption-color'])
@@ -72,7 +71,7 @@ const Resume = (props) => {
         {
           Object.keys(selectsColor).map( (k) => {
             return (
-            <div className='select'>
+            <div key={k} className='select'>
               <label>{labels['labels'][k]}</label>
               <select onChange={e => selectsColor[k](e.target.value)}>
                 {
@@ -89,15 +88,15 @@ const Resume = (props) => {
         {
           Object.keys(selectsFont).map( (k) => {
             return (
-              <div className='select'>
-              <label>{labels['labels'][k]}</label>
-              <select onChange={e => selectsFont[k](e.target.value)}>
-                {
-                  fonts.map( (v, i) => {
-                    return <option key={i} value={v}>{v}</option>
-                  })
-                }
-              </select>
+              <div key={k} className='select'>
+                <label>{labels['labels'][k]}</label>
+                <select onChange={e => selectsFont[k](e.target.value)}>
+                  {
+                    fonts.map( (v, i) => {
+                      return <option key={i} value={v}>{v}</option>
+                    })
+                  }
+                </select>
             </div>)
           })
         }
@@ -111,7 +110,7 @@ const Resume = (props) => {
 export default Resume
 
 
-const CV =(props) => {
+const CV = (props) => {
   const labels = confLabels[props.language]
   const cv = confCV[props.language];
   const profile = confCV['profile'];
@@ -273,8 +272,8 @@ const Interest = (props) => {
         <h3 style={{fontFamily:props.titleFont, color:props.textColor}}>{props.title}</h3>
         <div className='description'>
         {
-          props.description.map( t => {
-            return <p key={t}>{'> '+t}</p>
+          props.description.map( (t, i) => {
+            return <p key={i}>{'> '+t}</p>
           })
         }
         </div>

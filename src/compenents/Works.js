@@ -1,65 +1,84 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Octokit } from 'octokit';
-import labels from '../configs/labels.json';
+import confLabels from '../configs/labels.json';
+import { FiFolder, FiGithub } from 'react-icons/fi'
 
 const Works = (props) => {
+  const labels = confLabels[props.language];
+  const [repos, setRepos] = useState([]);
   
+  // TODO understand callback (https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
+  useEffect(()=> {
+    const octokit = new Octokit();
+    var loadingRepos = [];
+    const getRepos = async () => {  
+      octokit.request("GET /users/{user}/repos", {user: "theolemague",type: "public"})
+        .then( async res => {
+          if (res.data.length === 0) {
+            setRepos(null);
+          } else {
+            var asyncfunctions = [];
+            for (var i in res.data){
+              asyncfunctions.push(getRepoInfo(res.data[i].name));
+            }
+            await Promise.all(asyncfunctions);
+            setRepos(loadingRepos);
+      }});
+    }
+  
+    const getRepoInfo = async (name) =>{
+      var res = await octokit.rest.repos.getReadme({owner:"theolemague",repo:name})
+      const content = atob(res.data.content)
+      const description = content.substring(content.indexOf('\n')+1, content.indexOf('#', 1))  
+      res = await octokit.rest.repos.listLanguages({owner:"theolemague",repo:name});
+      loadingRepos.push({'id' : loadingRepos.length,'name' : name,'desc' : description, 'languages' : Object.keys(res.data)});
+    }
+    getRepos()
+  }, []);
+
   return (
-    <div>
-      <p>
-        In construction ! Trying to understand octokit documentation...
-      </p>
-    </div>
+    <>
+      <h2 className='page-title'>{labels['title']['works']}</h2>
+      <h3 className='page-subtitle'>{labels['title']['works-sub']}</h3>
+      { repos === null ?
+        <p>No works available</p> :
+        repos.length === 0 ? 
+        <p>loading</p> :
+        <CardGrid repos={repos}/>
+      } 
+    </>
   );
 }
-export default Works
+export default Works;
 
 
-/**
- * Recover the README.md file of the past repo
- * @param {String} repo Git repo name
- */
-function getReadMe(repo){
-  // Get the repo readme link
-  const octokit = new Octokit()
-  octokit.rest.repos.getContent({
-    owner:"theolemague",
-    repo:repo,
-    path:"README.md"
-  })
-  .then((res)=>{
-    console.log(repo+" "+res)
-    // fetch(res.data.download_url)
-    // .then(res=>{
-      //   // console.log(res)
-      
-      //   return res.text()})
-      // .then(res =>{
-        //   // console.log(res)
-        //   return res;
-        // });
-  });
-      // .catch(err=>{
-        //   console.log(err)
-        // })
+const CardGrid = ({repos}) => {
+  return (
+    <div className='cards-grid'>
+    {
+      repos.map((repo, i) => {
+        return <Card key={i} repo={repo}/>
+      })
+    }
+    </div>
+  )
 }
 
-/**
- * Recover the list of my repositories
- * 
- */
-function getReposList(){  
-  const octokit = new Octokit()
-  octokit.request("GET /users/{user}/repos", {
-    user: "theolemague",
-    type: "public",
-  }).then(res=>{
-    for (var i in res.data){
-      // const readme = this.getReadMe(res.data[i].name);
-      // console.log(res.data[i].name + readme)
-      console.log(res.data[i].name)    
-    }
-    this.setState({repo : res.data.length })
-  });
-
+const Card = ({repo}) => {
+  // TODO format text
+  return (
+    <div className='card'>
+      <header>
+        <FiFolder/>
+        <FiGithub/>
+      </header>
+      <main>
+        <h3>{repo.name}</h3>
+        <p>{repo.desc}</p>
+      </main>
+      <footer>
+        <p>{repo.languages}</p>
+      </footer>
+    </div>
+  )
 }

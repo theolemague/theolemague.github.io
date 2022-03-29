@@ -1,17 +1,17 @@
 import React from 'react';
-import labels from '../configs/labels.json';
+import confLabels from '../configs/labels.json';
 import cv from '../configs/cv.json';
 
 const Me = (props) => {
-
   let sections = {}
   for (let section in cv){
     if (section !== 'profile') sections[section] = cv[section]
   }
   return (
     <div>
-      <AboutMe language={props.language} ></AboutMe>
-      <Educations language={props.language} ></Educations>
+      In construction
+      {/* <AboutMe language={props.language} ></AboutMe>
+      <Educations language={props.language} ></Educations> */}
     </div>
   );
 };
@@ -29,27 +29,30 @@ export const AboutMe = (props) => {
   )
 }
 
-export const Educations = (props) => {
-  const education = cv['education'];
+export const Educations = ({language}) => {
+  const labels =  confLabels[language]
+  const education = cv[language]['education'];
+  // TODO see to remove this thing which look useless
   return (
     <section>
-      <h2>{labels[props.language]['title']['education']}</h2>
+      <h2>{labels['title']['education']}</h2>
+      
       {
-        education.map(val => {
-          return <Education language={props.language} edu={val} key={val['name']['fr']}></Education>
+        education.map((val, i) => {
+          return <Education language={language} edu={val} key={i}></Education>
         })
       }
     </section>
   )
 }
 
-export const Education = (props) => {
+export const Education = ({language, edu}) => {
   return (
     <div>
-      <h3>{props.edu['name'][props.language]}</h3>
-      <h4>{props.edu['university'][props.language]}</h4>
-      <h4>{props.edu['starting-date'][props.language]+'-'+props.edu['finishing-date'][props.language]}</h4>
-      <p>{props.edu['description'][props.language]}</p>
+      <h3>{edu['name'][language]}</h3>
+      <h4>{edu['university'][language]}</h4>
+      <h4>{edu['starting-date'][language]+'-'+edu['finishing-date'][language]}</h4>
+      <p>{edu['description'][language]}</p>
     </div>
   )
 }

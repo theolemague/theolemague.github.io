@@ -8,10 +8,14 @@ import Works from './compenents/Works';
 import NotFound from './compenents/NotFound';
 import Resume from './compenents/Resume';
 
-const App = () => {
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'fr')
-  const [width, setWidth] = useState(window.innerWidth);
+import confLabels from './configs/labels.json';
 
+const App = () => {
+
+  var prevLanguage = localStorage.getItem('language');
+  if (prevLanguage == null || !(prevLanguage in confLabels.language)) localStorage.setItem('language', 'fr');
+  const [language, setLanguage] = useState(localStorage.getItem('language'))
+  const [width, setWidth] = useState(window.innerWidth);
   const handleResize = useCallback(() => setWidth(window.innerWidth), []);
   
   useEffect( () =>{
@@ -22,7 +26,7 @@ const App = () => {
   return (  
     <div className='content'>
       <NavBar language={language} setLanguage={setLanguage} width={width}/>
-      <main>
+      <main className='body'>
         <Switch>
           <Route exact path='/'><Home language={language}></Home></Route>
           <Route path='/works/'><Works language={language}></Works></Route>

@@ -4,7 +4,8 @@
         "en" : "English"
     },
     "global" : {
-        "logo" : "TLM"
+        "logo" : "TLM",
+        "name" : "Theo Le Magueresse"
     },
     "themes" :[
         {
@@ -85,12 +86,12 @@
             "from" : "From",
             "to" : "to",
             "theme": "Choose a theme",
-            "background": "Choose a background color",
-            "text-color": "Choose a text color",
-            "caption-color": "Choose a capton color",
-            "highlight-color": "Choose a higlight color",
-            "title-font": "Choose a title font",
-            "text-font": "Choose a text font",
+            "c-background": "Choose a background color",
+            "c-text": "Choose a text color",
+            "c-caption": "Choose a capton color",
+            "c-highlight": "Choose a higlight color",
+            "ff-title": "Choose a title font",
+            "ff-text": "Choose a text font",
             "print": "Print"
         },
         "text" : {
@@ -123,12 +124,12 @@
             "from" : "De",
             "to" : "à",
             "theme": "Choisissez un theme",
-            "background": "Choisissez une couleur d'arrière plan",
-            "text-color": "Choisissez une couleur de text",
-            "caption-color": "Choisissez une couleur de sous-titre",
-            "highlight-color": "Choisissez une couleur de style",
-            "title-font": "Choisissez une police de titre",
-            "text-font": "Choisissez une police de text",
+            "c-background": "Choisissez une couleur d'arrière plan",
+            "c-text": "Choisissez une couleur de text",
+            "c-caption": "Choisissez une couleur de sous-titre",
+            "c-highlight": "Choisissez une couleur de style",
+            "ff-title": "Choisissez une police de titre",
+            "ff-text": "Choisissez une police de text",
             "print": "Imprimer"
         },
         "text" : {

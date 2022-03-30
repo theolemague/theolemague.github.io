@@ -1,11 +1,11 @@
 import React from 'react';
 import confLabels from '../configs/labels.json';
-import cv from '../configs/cv.json';
+import confResume from '../configs/resume.json';
 
 const Me = (props) => {
   let sections = {}
-  for (let section in cv){
-    if (section !== 'profile') sections[section] = cv[section]
+  for (let section in confResume){
+    if (section !== 'profile') sections[section] = confResume[section]
   }
   return (
     <div>
@@ -19,7 +19,7 @@ export default Me
 
 
 export const AboutMe = (props) => {
-  const profile = cv['profile'];
+  const profile = confResume['profile'];
   return (
     <section>
       <h2>{profile['name']}</h2>
@@ -31,7 +31,7 @@ export const AboutMe = (props) => {
 
 export const Educations = ({language}) => {
   const labels =  confLabels[language]
-  const education = cv[language]['education'];
+  const education = confResume[language]['education'];
   // TODO see to remove this thing which look useless
   return (
     <section>

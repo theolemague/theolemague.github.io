@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import confLabels from '../configs/labels.json';
+import confThemes from '../configs/themes.json';
   
 const NavBar = (props) => {
   const [openedMenu, setOpenedMenu] = useState(false);
@@ -66,7 +67,7 @@ const NavBar = (props) => {
 export default NavBar
 
 const NavList = ({language}) => {
-  const labels = confLabels[language]
+  const labels = confLabels[language];
   return (
     <>
       <ol>
@@ -80,28 +81,29 @@ const NavList = ({language}) => {
 }
 
 const NavConfig = ({language, setLanguage}) => {
-  const themes = confLabels['themes']
+  const themes = confThemes['web'];
 
   const handleThemeChange = (i)=>{
-    const t = themes[i]
+    const t = themes[i];
     document.documentElement.style.setProperty('--ff-title', t['ff-title']);
     document.documentElement.style.setProperty('--ff-text', t['ff-text']);
     document.documentElement.style.setProperty('--ff-caption', t['ff-caption']);
     document.documentElement.style.setProperty('--ff-link', t['ff-link']);
-    document.documentElement.style.setProperty('--c-background-shadow', t['c-background-shadow'])
-    document.documentElement.style.setProperty('--c-background', t['c-background'])
-    document.documentElement.style.setProperty('--c-background-65', t['c-background-65'])
-    document.documentElement.style.setProperty('--c-border', t['c-border'])
-    document.documentElement.style.setProperty('--c-text', t['c-text'])
-    document.documentElement.style.setProperty('--c-text-50', t['c-text-50'])
-    document.documentElement.style.setProperty('--c-highligth', t['c-highligth'])
-    document.documentElement.style.setProperty('--c-highligth-50', t['c-highligth-50'])
-    document.documentElement.style.setProperty('--c-caption', t['c-caption'])
+    document.documentElement.style.setProperty('--c-background-shadow', t['c-background-shadow']);
+    document.documentElement.style.setProperty('--c-background', t['c-background']);
+    document.documentElement.style.setProperty('--c-background-65', t['c-background-65']);
+    document.documentElement.style.setProperty('--c-border', t['c-border']);
+    document.documentElement.style.setProperty('--c-text', t['c-text']);
+    document.documentElement.style.setProperty('--c-text-50', t['c-text-50']);
+    document.documentElement.style.setProperty('--c-highlight', t['c-highlight']);
+    document.documentElement.style.setProperty('--c-highlight-50', t['c-highlight-50']);
+    document.documentElement.style.setProperty('--c-caption', t['c-caption']);
     document.documentElement.style.setProperty('--svg-select', 'url("' + t['svg-select']+ '")');
   }
+
   const handleLanguageChange = (l) =>{
-    setLanguage(l)
-    localStorage.setItem('language', l)
+    setLanguage(l);
+    localStorage.setItem('language', l);
   }
 
   return (

@@ -37,7 +37,7 @@ const Works = (props) => {
   }, []);
 
   return (
-    <>
+    <section>
       <h2 className='page-title'>{labels['title']['works']}</h2>
       <h3 className='page-subtitle'>{labels['title']['works-sub']}</h3>
       { repos === null ?
@@ -46,7 +46,7 @@ const Works = (props) => {
         <p>loading</p> :
         <CardGrid repos={repos}/>
       } 
-    </>
+    </section>
   );
 }
 export default Works;
@@ -65,6 +65,19 @@ const CardGrid = ({repos}) => {
 }
 
 const Card = ({repo}) => {
+  
+  const formatDesc = (desc) => {
+    if (desc.includes('](')) {
+      const prevlink = desc.slice(0, desc.indexOf(']('));
+      const postlink = desc.slice(desc.indexOf('](')+2);
+      const text = prevlink.slice(0, prevlink.lastIndexOf('['))
+      const name = prevlink.slice(prevlink.lastIndexOf('[') +1)
+      const link = postlink.slice(0, postlink.indexOf(')'));
+      return <>{text}<a href={link} target="_blank" rel="noreferrer">{name}</a>{formatDesc(postlink.slice(postlink.indexOf(')')+1))}</>;
+    } else {
+      return <>{desc}</>
+    }
+  }
   // TODO format text
   return (
     <div className='card'>
@@ -74,10 +87,14 @@ const Card = ({repo}) => {
       </header>
       <main>
         <h3>{repo.name}</h3>
-        <p>{repo.desc}</p>
+        <p>{formatDesc(repo.desc)}</p>
       </main>
       <footer>
-        <p>{repo.languages}</p>
+        {
+          repo.languages.map( (l, i) => {
+            return <p key={i}>{l}</p>
+          })
+        }
       </footer>
     </div>
   )

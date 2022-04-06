@@ -1,30 +1,4 @@
 {
-    "fonts" : [ "SF Mono SemiBold", "SF Mono Regular"],
-    "colors" : ["#0a192f", "#ffffff", "#8892b0", "#64ffda", "#9F1717"],
-    "themes" : [
-        {
-            "name" : "Brittany Chiang",
-            "values" : {
-                "background" : "#0a192f",
-                "text-color" : "#ffffff",
-                "caption-color" : "#8892b0",
-                "highlight-color" : "#64ffda",
-                "title-font" : "SF Mono SemiBold",
-                "text-font" : "SF Mono Regular"
-            }
-        },
-        {
-            "name" : "Classic",
-            "values" : {
-                "background" : "#ffffff",
-                "text-color" : "#000000",
-                "caption-color" : "#8892b0",
-                "highlight-color" : "#9F1717",
-                "title-font" : "SF Mono SemiBold",
-                "text-font" : "SF Mono Regular"
-            }
-        }
-    ],
     "profile" : {
         "name" : "Théo Le Magueresse",
         "birthdate" : "18 mars 1999",
@@ -44,11 +18,11 @@
         "education" : [
             {
                 "name" :  "Erasmus",
-                "university" :  "Université de Stockholm, département Informatiques et des Systèmes",
+                "university" :  "Université de Stockholm, Informatiques et des Systèmes",
                 "city" : "Stockholm",
                 "starting-date" :"août 2021",
                 "finishing-date" : "juin 2022",
-                "description" : "Machine Learning, IoT, Sécurité Réseaux"
+                "description" : "Machine Learning, IoT, Sécurité Réseaux, Cyber Sécurité"
             },
             {
                 "name" : "Diplôme d'ingénieur",
@@ -60,16 +34,16 @@
             },
             {
                 "name" : "DUT",
-                "university" : "IUT d'Angers, département Génie Électrique et Informatique Industrielle",
+                "university" : "IUT d'Angers, Génie Électrique et Informatique Industrielle",
                 "city" : "Angers",
                 "starting-date" : "septembre 2017",
                 "finishing-date" : "juin 2019",
-                "description" : "Électrique, Électronique, Information, Iot, Traitement de Signal"
+                "description" : "Électrique, Électronique, Information, IoT, Traitement de Signal"
             }
         ],
         "work-experience" : [
             {
-                "name" : "Consultant developpeur",
+                "name" : "Consultant web developpeur",
                 "company" : "ETIC (Lyon) & Barrel Wave Solution (Lausanne)",
                 "city" : "Lyon",
                 "starting-date" : "mai 2020",
@@ -78,7 +52,7 @@
                 "missions" : [
                     "Création d'une API Spring Boot en communication avec une base de données SQL",
                     "Création d'une application web Angular en connexion avec l'API",
-                    "Mise en place d'une authentification sécurisée utilisant la technologie des jetons et l'authentification à 2 facteurs",
+                    "Mise en place d'une authentification sécurisée utilisant la technologie des jetons et l'authentification à 2 facteurs, LDAP et Radius",
                     "Mise à jour de toutes les requêtes SQL et création de routes REST pour communiquer avec l'application web",
                     "Mise à jour des interfaces utilisateurs et création de requêtes HTTP pour communiquer avec l'API",
                     "Mise en place d'un système de configuration et de journalisation"
@@ -117,14 +91,14 @@
                 "name" : "Programmation, web & IoT",
                 "skills" : [
                     "langages - C, C++, Java, Go, Python, Swift, SwiftUI, Javascript, Typescript, SQL, Twig, HTML, CSS",
-                    "logiciels, frameworks, outils & librairies - Qt Creator, Android Studio, XCode, Arduino, Atmel Studio,Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
+                    "logiciels, frameworks, outils & librairies - Qt Creator, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
                 ]            
             },
             {
                 "name" : "Réseaux & Sécurité",
                 "skills" : [
                     "protocoles - TCP, IPv4/v6, UDP, ARP, OSPF, MPLS, VPN, DNS, DHCP, HTTP, RIP, IPsec, HTTPS, RSA",
-                    "connaissances - Mise en place d'architectures réseaux / Configuration de router et swtiches Cisco"
+                    "connaissances - Mise en place d'architectures réseaux / Configuration de router et switches Cisco"
                 ]
             },
             {
@@ -154,7 +128,7 @@
                 "description" : [
                     "16 ans de Football en club au niveau régional",
                     "3 ans de Judo en club",
-                    "2 ans de nataion en club",
+                    "2 ans de natation en club",
                     "En loisir : Tennis, Football, VTT"
                 ]
             },
@@ -162,7 +136,7 @@
                 "name" : "Jeux vidéo",
                 "description" : [
                     "Différents thèmes de jeux vidéo",
-                    "Création de jeux vidéo"
+                    "Intéressé dans la création de jeux vidéo"
                 ]
                 
             }   
@@ -172,15 +146,15 @@
         "education" : [
             {
                 "name" : "Erasmus",
-                "university" : "Stockholm University, Computer and System Sciences department",
+                "university" : "Stockholm University, Computer and System Sciences",
                 "city" : "Stockholm",
                 "starting-date" : "August 2021",
                 "finishing-date" : "June 2022",   
-                "description" :"Machine Learning, IoT, Network Security"
+                "description" :"Machine Learning, IoT, Network Security, Cyber Security"
             },
             {
-                "name" : "Engineering Degree in Telecommunications department",
-                "university" : "INSA of Lyon, Telecommunications department",
+                "name" : "Engineering Degree in Telecommunications",
+                "university" : "INSA of Lyon, Telecommunications",
                 "city" : "Lyon",
                 "starting-date" : "September 2019",
                 "finishing-date" : "/",
@@ -188,7 +162,7 @@
             },
             {
                 "name" : "Diploma in Technological Studies",
-                "university" : "IUT of Angers, Electrical and Computer Engineering department",
+                "university" : "IUT of Angers, Electrical and Computer Engineering",
                 "city" : "Angers",
                 "starting-date" : "September 2017",
                 "finishing-date" : "June 2019",
@@ -206,7 +180,7 @@
                 "missions" : [
                     "Creation of a Spring Boot API in communication with a SQL database",
                     "Creation of an Angular web application in connection with the API",
-                    "Implementation of a secure authentication using token technology and 2 factor authentication",
+                    "Implementation of a secure authentication using token technology and 2 factor authentication, LDAP and Radius",
                     "Update of all SQL queries and creation of REST routes to communicate with the web application",
                     "Update of user interfaces and creation of HTTP requests to communicate with the API",
                     "Implementation of a configuration and logging system"
@@ -246,14 +220,14 @@
                 "name" : "Programming, web & IoT",
                 "skills" : [
                     "languages - C, C++, Java, Go, Python, Swift, SwiftUI, Javascript, Typescript, SQL, Twig, HTML, CSS",
-                    "sofwares, frameworks, tools & libraries - Qt Creator, Android Studio, XCode, Arduino, Atmel Studio,Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
+                    "sofwares, frameworks, tools & libraries - Qt Creator, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
                 ]            
             },
             {
                 "name" : "Networks & Security",
                 "skills" : [
                     "protocols - TCP, IPv4/v6, UDP, ARP, OSPF, MPLS, VPN, DNS, DHCP, HTTP, RIP, IPsec, HTTPS, RSA",
-                    "knowledges - Implement of a network architecture / Cisco Router configuration"
+                    "knowledges - Implement of a network architecture / Cisco Router and Switches configuration"
                 ]
             },
             {

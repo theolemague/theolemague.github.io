@@ -31,7 +31,7 @@ const App = () => {
           <Route exact path='/'><Home language={language}></Home></Route>
           <Route path='/works/'><Works language={language}></Works></Route>
           <Route path='/me/'><Me language={language}></Me></Route> 
-          <Route path='/resume/'><Resume language={language}></Resume></Route> 
+          {/* <Route path='/resume/'><Resume language={language}></Resume></Route>  */}
           <Route ><NotFound language={language}></NotFound></Route>
         </Switch>
       </main>

@@ -74,7 +74,7 @@ const NavList = ({language}) => {
         <li><Link to='/'>{labels['navbar']['home']}</Link></li>
         <li><Link to='/works'>{labels['navbar']['works']}</Link></li>
         <li><Link to='/me'>{labels['navbar']['me']}</Link></li>
-        <li><Link to='/resume'>{labels['navbar']['resume']}</Link></li>
+        {/* <li><Link to='/resume'>{labels['navbar']['resume']}</Link></li> */}
       </ol>
     </>
   )
@@ -85,20 +85,10 @@ const NavConfig = ({language, setLanguage}) => {
 
   const handleThemeChange = (i)=>{
     const t = themes[i];
-    document.documentElement.style.setProperty('--ff-title', t['ff-title']);
-    document.documentElement.style.setProperty('--ff-text', t['ff-text']);
-    document.documentElement.style.setProperty('--ff-caption', t['ff-caption']);
-    document.documentElement.style.setProperty('--ff-link', t['ff-link']);
-    document.documentElement.style.setProperty('--c-background-shadow', t['c-background-shadow']);
-    document.documentElement.style.setProperty('--c-background', t['c-background']);
-    document.documentElement.style.setProperty('--c-background-65', t['c-background-65']);
-    document.documentElement.style.setProperty('--c-border', t['c-border']);
-    document.documentElement.style.setProperty('--c-text', t['c-text']);
-    document.documentElement.style.setProperty('--c-text-50', t['c-text-50']);
-    document.documentElement.style.setProperty('--c-highlight', t['c-highlight']);
-    document.documentElement.style.setProperty('--c-highlight-50', t['c-highlight-50']);
-    document.documentElement.style.setProperty('--c-caption', t['c-caption']);
-    document.documentElement.style.setProperty('--svg-select', 'url("' + t['svg-select']+ '")');
+    Object.keys(t).forEach( k => {
+      console.log(k);
+      document.documentElement.style.setProperty('--' + k, t[k]);
+    });
   }
 
   const handleLanguageChange = (l) =>{

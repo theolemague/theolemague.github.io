@@ -18,7 +18,7 @@ const Works = (props) => {
             setRepos(null);
           } else {
             var asyncfunctions = [];
-            for (var i in res.data){
+            for (let i in res.data){
               asyncfunctions.push(getRepoInfo(res.data[i].name));
             }
             await Promise.all(asyncfunctions);
@@ -37,9 +37,9 @@ const Works = (props) => {
   }, []);
 
   return (
-    <section>
-      <h2 className='page-title'>{labels['title']['works']}</h2>
-      <h3 className='page-subtitle'>{labels['title']['works-sub']}</h3>
+    <section className='works'>
+      <h2 className='page-title'>Beta | {labels['title']['works']}</h2>
+      <h3 className='page-subtitle'>{labels['title']['works-sub']} | (I am cleaning them, they should appear soon)</h3>
       { repos === null ?
         <p>No works available</p> :
         repos.length === 0 ? 

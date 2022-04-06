@@ -7,72 +7,20 @@
         "logo" : "TLM",
         "name" : "Theo Le Magueresse"
     },
-    "themes" :[
-        {
-            "name": "Writter dark",
-            "ff-title" : "SF Mono SemiBold",
-            "ff-text": "SF Mono Regular",
-            "ff-caption": "SF Mono Regular",
-            "ff-link": "SF Mono Regular",
-            "c-background-shadow": "#000000b3",
-            "c-background":"#141414",
-            "c-background-65":"#141414",
-            "c-border":"#f0f0f0",
-            "c-text":"#f0f0f0",
-            "c-text-50":"#f0f0f080",
-            "c-highligth":"#f0f0f0",
-            "c-highligth-50":"#f0f0f0",
-            "c-caption": "#f0f0f0",
-            "svg-select": "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23f0f0f0%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e"
-        },
-        {
-            "name": "Writter light",
-            "ff-title" : "SF Mono SemiBold",
-            "ff-text": "SF Mono Regular",
-            "ff-caption": "SF Mono Regular",
-            "ff-link": "SF Mono Regular",
-            "c-background-shadow": "#ffffffb3",
-            "c-background":"#f0f0f0",
-            "c-background-65":"#f0f0f0",
-            "c-border":"#141414",
-            "c-text":"#141414",
-            "c-text-50":"#14141480",
-            "c-highligth":"#141414",
-            "c-highligth-50":"#141414",
-            "c-caption": "#141414",
-            "svg-select": "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23141414%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e"
-        },
-        {
-            "name": "Brittany Chiang",
-            "ff-title" : "Sharp Sans Bold",
-            "ff-text": "SF Mono Regular",
-            "ff-caption": "Sharp Sans",
-            "ff-link": "SF Mono Regular",
-            "c-background-shadow": "#020c1bb3",
-            "c-background":"#0a192f",
-            "c-background-65":"#0a192fa6",
-            "c-border":"#64ffda",
-            "c-text":"#ffffff",
-            "c-text-50":"#ffffff80",
-            "c-highligth":"#64ffda",
-            "c-highligth-50":"#64ffda80",
-            "c-caption": "#8892b0",
-            "svg-select": "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%2364ffda%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e"
-        }
-    ],
     "en" : {
         "title" : {
-            "home" : "Hello world ! I am ",
+            "home" : "Beta | Hello world ! I am ",
             "home-sub": "Engineering student in computer sciences",
             "me" :"About me",
             "me-sub": "Here is my background",
             "works" :"My works",
             "works-sub" : "Here are some of the works I have done which are on my GitHub",
-            "education" : "02. educations",
-            "work-experience" : "01. work experiences",
-            "project" : "04. projects",
-            "skills" : "03. skills",
-            "personal-interest" : "05. personal interests"
+            "about-me" : "01. About me",
+            "education" : "02. Educations",
+            "experiences" : "03. Work experience",
+            "skills" : "04. Skills",
+            "project" : "05. Projects",
+            "personal-interest" : "06. Personal interests"
         },
         "navbar" : {
             "home" : "Home",
@@ -100,17 +48,18 @@
     },
     "fr" : {
         "title" : {
-            "home" : "Hello world ! Je suis",
+            "home" : "Beta | Hello world ! Je suis",
             "home-sub": "Étudiant ingénieur en informatique",
             "me" :"A propos de moi",
             "me-sub": "Voici mon parcours",
             "works" :"Mes travaux",
             "works-sub" : "Voici quelques-uns des travaux que j'ai réalisés qui se trouvent sur mon GitHub",
-            "education" : "02. formations",
-            "work-experience" : "01. experiences professionnelles",
-            "project" : "04. projets",
-            "skills" : "03. compétences",
-            "personal-interest" : "05. interêts personnels"
+            "about-me" : "01. A propos de moi",
+            "education" : "02. Formations",
+            "experiences" : "03. Expériences professionnelles",
+            "skills" : "04. Compétences",
+            "project" : "05. Projets",
+            "personal-interest" : "06. Interêts personnels"
         },
         "navbar" : {
             "home" : "Accueil",

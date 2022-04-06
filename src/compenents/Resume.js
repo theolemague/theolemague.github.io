@@ -37,12 +37,10 @@ const Resume = (props) => {
       
   const handleThemeChange = (i) => {
     const t = themes[i]
-    document.documentElement.style.setProperty('--cv-c-background', t['c-background']);
-    document.documentElement.style.setProperty('--cv-c-highlight', t['c-highlight']);
-    document.documentElement.style.setProperty('--cv-c-caption', t['c-caption']);
-    document.documentElement.style.setProperty('--cv-c-text', t['c-text']);
-    document.documentElement.style.setProperty('--cv-ff-text', t['ff-text']);
-    document.documentElement.style.setProperty('--cv-ff-title', t['ff-title']);
+    Object.keys(t).forEach( k => {
+      console.log(k);
+      document.documentElement.style.setProperty('--cv-' + k, t[k]);
+    });
   }
       
   const handlePropertyChange = (p, c) => {
@@ -51,6 +49,7 @@ const Resume = (props) => {
 
   return (
     <>
+    <h3 className='page-subtitle'>This section is in construction, may have a look of the objective below</h3>
       <div className='select-form'>
         <div className='select'>
           <label>{labels['labels']['theme']}</label>

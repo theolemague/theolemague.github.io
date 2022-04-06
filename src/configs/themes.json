@@ -2,10 +2,11 @@
     "web" : [
         {
             "name": "Writter dark",
-            "ff-title" : "SF Mono SemiBold",
-            "ff-text": "SF Mono Regular",
-            "ff-caption": "SF Mono Regular",
-            "ff-link": "SF Mono Regular",
+            "ff-title" : "Roboto Mono",
+            "ff-subtitle" : "Roboto Mono",
+            "ff-caption": "Roboto Mono",
+            "ff-link": "Roboto Mono",
+            "ff-text": "IBM Plex Sans",
             "c-background-shadow": "#000000b3",
             "c-background":"#141414",
             "c-background-65":"#141414",
@@ -19,10 +20,11 @@
         },
         {
             "name": "Writter light",
-            "ff-title" : "SF Mono SemiBold",
-            "ff-text": "SF Mono Regular",
-            "ff-caption": "SF Mono Regular",
-            "ff-link": "SF Mono Regular",
+            "ff-title" : "Roboto Mono",
+            "ff-subtitle" : "Roboto Mono",
+            "ff-caption": "Roboto Mono",
+            "ff-link": "Roboto Mono",
+            "ff-text": "IBM Plex Sans",
             "c-background-shadow": "#ffffffb3",
             "c-background":"#f0f0f0",
             "c-background-65":"#f0f0f0",
@@ -36,10 +38,11 @@
         },
         {
             "name": "Brittany Chiang",
-            "ff-title" : "Sharp Sans Bold",
-            "ff-text": "SF Mono Regular",
+            "ff-title" : "Sharp Sans",
+            "ff-subtitle" : "Sharp Sans",
             "ff-caption": "Sharp Sans",
-            "ff-link": "SF Mono Regular",
+            "ff-link": "SF Mono",
+            "ff-text": "Arial",
             "c-background-shadow": "#020c1bb3",
             "c-background":"#0a192f",
             "c-background-65":"#0a192fa6",
@@ -53,8 +56,8 @@
         }
     ],
     "resume" : {
-        "fonts" : [ "SF Mono SemiBold", "SF Mono Regular"],
-        "colors" : ["#0a192f", "#ffffff", "#8892b0", "#64ffda", "#9F1717"],
+        "fonts" : [ "SF Mono SemiBold", "SF Mono Regular", "Arial", "Helvetica", "Times New Roman"],
+        "colors" : ["#0a192f", "#ffffff", "#ececec", "#8892b0", "#64ffda", "#2d2d2d", "#9F1717"],
         "themes" : [
             {
                 "name" : "Brittany Chiang",
@@ -63,17 +66,29 @@
                 "c-caption" : "#8892b0",
                 "c-highlight" : "#64ffda",
                 "ff-title" : "SF Mono SemiBold",
-                "ff-text" : "SF Mono Regular"
+                "ff-text" : "SF Mono Regular",
+                "ff-subtitle" : "SF Mono Regular",
+                "ff-caption" : "SF Mono Regular",
+                "fs-header" : "24pt",
+                "fs-subtitle" : "12pt",
+                "fs-title" : "14pt",
+                "fs-text" : "9pt"     
                 
             },
             {
                 "name" : "Classic",
-                "c-background" : "#ffffff",
-                "c-text" : "#000000",
-                "c-caption" : "#8892b0",
-                "c-highlight" : "#9F1717",
-                "ff-title" : "SF Mono SemiBold",
-                "ff-text" : "SF Mono Regular"       
+                "c-background" : "#ececec",
+                "c-text" : "#2d2d2d",
+                "c-caption" : "#2d2d2d",
+                "c-highlight" : "#2d2d2d",
+                "ff-title" : "Times New Roman",
+                "ff-subtitle" : "Arial",
+                "ff-caption" : "Arial",
+                "ff-text" : "Arial",
+                "fs-header" : "48px",
+                "fs-title" : "24px",
+                "fs-subtitle" : "15px",
+                "fs-text" : "12px"     
             }
         ]
     }

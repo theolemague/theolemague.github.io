@@ -79,7 +79,7 @@ const Education = ({edu}) => {
 
 /** - WORK EXPERIENCES - **/
 const Experiences = ({title, language}) => {
-  const experiences = confAboutMe['work-experiences']['fr'];
+  const experiences = confAboutMe['work-experiences'][language];
   const [opacity, setOpactity] = useState(0);
 
   useEffect(()=> {

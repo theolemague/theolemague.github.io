@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import confLabels from '../configs/labels.json';
 import confAboutMe from '../configs/aboutMe.json';
 
@@ -6,28 +6,32 @@ const Me = (props) => {
   const labels = confLabels[props.language];
   return (
     <section className='me'>
-      <h2>{labels['title']['about-me']}</h2>
-      <AboutMe language={props.language}/>
-      <h2>{labels['title']['education']}</h2> 
-      <Educations language={props.language}/>
-      <h2>{labels['title']['experiences']}</h2> 
-      <Experiences language={props.language}/>
-      <h2>{labels['title']['skills']}</h2> 
-      <Skills language={props.language}/>
-      <h2>{labels['title']['project']}</h2> 
-      <Projects language={props.language}/>
-      <h2>{labels['title']['personal-interest']}</h2> 
-      <Interests language={props.language}/>
+      <AboutMe language={props.language} title={labels['title']['about-me']}/>
+      <Educations language={props.language} title={labels['title']['education']}/>
+      <Experiences language={props.language} title={labels['title']['experiences']}/>
+      <Skills language={props.language} title={labels['title']['skills']}/>
+      <Projects language={props.language} title={labels['title']['project']}/>
+      <Interests language={props.language} title={labels['title']['personal-interest']}/>
     </section>
   );
 };
 export default Me
 
+// TODO see opactiy when object appear on the screen (find position of element)
+
 /** - ABOUT ME - **/
-const AboutMe = ({language}) => {
+const AboutMe = ({title, language}) => {
   const aboutMe = confAboutMe['about-me'][language];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 50);
+    return () => clearTimeout(timer);
+  }, [setOpactity])
+
   return (
-    <section className='about-me'>
+    <section className='about-me' style={{opacity:opacity}}>
+      <h2>{title}</h2>
       {
         aboutMe.map((v, i) => {
           return <p key={i}>{v}</p>
@@ -38,15 +42,25 @@ const AboutMe = ({language}) => {
 }
 
 /** - EDUCATIONS - **/
-const Educations = ({language}) => {
+const Educations = ({title, language}) => {
   const educations = confAboutMe['educations'][language];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 250);
+    return () => clearTimeout(timer);
+  }, [setOpactity]);
+
   return (
-    <section className='educations'>
-      {
-        educations.map((v, i) => {
-          return <Education edu={v} key={i}/>
-        })
-      }
+    <section className='educations' style={{opacity:opacity}}>
+      <h2>{title}</h2>
+      <div className='grid'>
+        {
+          educations.map((v, i) => {
+            return <Education edu={v} key={i}/>
+          })
+        }
+      </div>
     </section>
   )
 }
@@ -64,15 +78,25 @@ const Education = ({edu}) => {
 }
 
 /** - WORK EXPERIENCES - **/
-const Experiences = ({language}) => {
+const Experiences = ({title, language}) => {
   const experiences = confAboutMe['work-experiences']['fr'];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 450);
+    return () => clearTimeout(timer);
+  }, [setOpactity]);
+  
   return (
-    <section className='experiences'>  
-      {
-        experiences.map((v, i) => {
-          return <Experience exp={v} key={i}/>
-        })
-      }
+    <section className='experiences' style={{opacity:opacity}}> 
+      <h2>{title}</h2> 
+      <div className='grid'>
+        {
+          experiences.map((v, i) => {
+            return <Experience exp={v} key={i}/>
+          })
+        }
+      </div>
     </section>
   )
 }
@@ -97,19 +121,27 @@ const Experience = ({exp}) => {
 }
 
 /** - SKILLS - **/
-const Skills = ({language}) => {
+const Skills = ({title, language}) => {
   const skills = confAboutMe['skills'][language];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 650);
+    return () => clearTimeout(timer);
+  }, [setOpactity]);
+  
   return (
-    <section className='skills'>
-    {
-      skills.map((v, i)=>{
-        return <Skill key={i} skill={v}/>
-      })
-    }
+    <section className='skills' style={{opacity:opacity}}>
+      <h2>{title}</h2>
+      {
+        skills.map((v, i)=>{
+          return <Skill key={i} skill={v}/>
+        })
+      }
     </section>
   )
 }
-const Skill = ({skill}) => {
+const Skill = ({skill}) => {  
   const buildSkillsValues = (config) => {
     var values = []
     if (config.includes('!')){
@@ -122,39 +154,49 @@ const Skill = ({skill}) => {
   return (
     <>
       <h3>{skill['name']}</h3>
-        <div className={skill['skills'][0].includes('!') ? 'grid ling': 'grid'}>
-          {
-            skill['skills'].map((v, i) => {
-                return <SkillRow key={i} values={buildSkillsValues(v)}/>
-            })
-          }
-        </div>
+      <div className={skill['skills'][0].includes('!') ? 'grid ling': 'grid'}>
+        {
+          skill['skills'].map((v, i) => {
+              return <SkillRow key={i} values={buildSkillsValues(v)}/>
+          })
+        }
+      </div>
     </>
   )
 }
 const SkillRow = ({values}) => {
   return (
     <>
-    {
-      values.map((v, i) => {
-        if (i%2===0) return <h4 key={i}>{v}</h4>
-        else return <p key={i}>{v}</p>
-      })
-    }
+      {
+        values.map((v, i) => {
+          if (i%2===0) return <h4 key={i}>{v}</h4>
+          else return <p key={i}>{v}</p>
+        })
+      }
     </>
   )
 }
 
 /** - PROJECTS - **/
-const Projects = ({language}) => {
+const Projects = ({title, language}) => {
   const projects = confAboutMe['projects'][language];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 850);
+    return () => clearTimeout(timer);
+  }, [setOpactity]);
+  
   return (
-    <section className='projects'>
-      {
-        projects.map((v, i)=> {
-          return <Project key={i} proj={v}/>
-        })
-      }
+    <section className='projects' style={{opacity:opacity}}>
+      <h2>{title}</h2>
+      <div className='grid'>
+        {
+          projects.map((v, i)=> {
+            return <Project key={i} proj={v}/>
+          })
+        }
+      </div>
     </section>
   )
 }
@@ -171,15 +213,25 @@ const Project = ({proj}) => {
 }
 
 /** - INTERESTS - **/
-const Interests = ({language}) => {
+const Interests = ({title, language}) => {
   const interests = confAboutMe['personal-interests'][language];
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {setOpactity(1);}, 1050);
+    return () => clearTimeout(timer);
+  }, [setOpactity]);
+  
   return (
-    <section className='interests'>
-      {
-        interests.map((v, i)=> {
-          return <Interest key={i} inter={v}/>
-        })
-      }
+    <section className='interests' style={{opacity:opacity}}>
+      <h2>{title}</h2>
+      <div className='grid'>
+        {
+          interests.map((v, i)=> {
+            return <Interest key={i} inter={v}/>
+          })
+        }
+      </div>
     </section>
   )
 }

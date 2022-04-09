@@ -6,6 +6,15 @@ import { FiFolder, FiGithub } from 'react-icons/fi'
 const Works = (props) => {
   const labels = confLabels[props.language];
   const [repos, setRepos] = useState([]);
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {
+      setOpactity(1);
+    }, 50);
+    return () => clearTimeout(timer);
+  
+  }, [setOpactity])
   
   // TODO understand callback (https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
   useEffect(()=> {
@@ -19,31 +28,32 @@ const Works = (props) => {
           } else {
             var asyncfunctions = [];
             for (let i in res.data){
-              asyncfunctions.push(getRepoInfo(res.data[i].name));
+              asyncfunctions.push(getRepoInfo(res.data[i].name, res.data[i].html_url));
             }
             await Promise.all(asyncfunctions);
             setRepos(loadingRepos);
+            
       }});
     }
   
-    const getRepoInfo = async (name) =>{
+    const getRepoInfo = async (name, link) =>{
       var res = await octokit.rest.repos.getReadme({owner:"theolemague",repo:name})
       const content = atob(res.data.content)
       const description = content.substring(content.indexOf('\n')+1, content.indexOf('#', 1))  
       res = await octokit.rest.repos.listLanguages({owner:"theolemague",repo:name});
-      loadingRepos.push({'id' : loadingRepos.length,'name' : name,'desc' : description, 'languages' : Object.keys(res.data)});
+      loadingRepos.push({'id' : loadingRepos.length,'name' : name,'desc' : description, 'languages' : Object.keys(res.data), 'link':link});
     }
     getRepos()
   }, []);
 
   return (
-    <section className='works'>
-      <h2 className='page-title'>Beta | {labels['title']['works']}</h2>
-      <h3 className='page-subtitle'>{labels['title']['works-sub']} | (I am cleaning them, they should appear soon)</h3>
+    <section className='works' style={{opacity:opacity}}>
+      <h2>{labels['title']['works']}</h2>
+      <p>{labels['title']['works-sub']} | (I am cleaning them, they should appear soon)</p>
       { repos === null ?
-        <p>No works available</p> :
+        <h3>{labels['labels']['no-works']}</h3> :
         repos.length === 0 ? 
-        <p>loading</p> :
+        <h3>{labels['labels']['loading']}</h3> :
         <CardGrid repos={repos}/>
       } 
     </section>
@@ -51,20 +61,28 @@ const Works = (props) => {
 }
 export default Works;
 
-
 const CardGrid = ({repos}) => {
   return (
     <div className='cards-grid'>
     {
       repos.map((repo, i) => {
-        return <Card key={i} repo={repo}/>
+        return <Card key={i} repo={repo} index={i}/>
       })
     }
     </div>
   )
 }
 
-const Card = ({repo}) => {
+const Card = ({repo, index}) => {
+  const [opacity, setOpactity] = useState(0);
+
+  useEffect(()=> {
+    const timer = setTimeout(() => {
+      setOpactity(1);
+    }, index*200);
+    return () => clearTimeout(timer);
+  
+  }, [setOpactity, index])
   
   const formatDesc = (desc) => {
     if (desc.includes('](')) {
@@ -78,15 +96,15 @@ const Card = ({repo}) => {
       return <>{desc}</>
     }
   }
-  // TODO format text
+
   return (
-    <div className='card'>
+    <div className='card' style={{opacity:opacity}}>
       <header>
         <FiFolder/>
-        <FiGithub/>
+        <a href={repo.link} target="_blank" rel="noreferrer"><FiGithub/></a>
       </header>
       <main>
-        <h3>{repo.name}</h3>
+        <a href={repo.link} target="_blank" rel="noreferrer"><h3>{repo.name}</h3></a>
         <p>{formatDesc(repo.desc)}</p>
       </main>
       <footer>

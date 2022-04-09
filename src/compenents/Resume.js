@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import confLabels from '../configs/labels.json';
 import confResume from '../configs/resume.json';
 import confThemes from '../configs/themes.json';

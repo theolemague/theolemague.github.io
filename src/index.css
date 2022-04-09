@@ -166,6 +166,10 @@ a {
   text-decoration:none
 }
 
+section {
+  transition: opacity var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal), transform var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal);
+}
+
 button {
   background: transparent;
   border : solid 1px var(--c-border);
@@ -207,6 +211,10 @@ button:hover {
   background-color: var(--c-highlight-50);
   transition-duration: var(--t-slow);
   color : var(--c-background);
+}
+
+.slow-appear {
+
 }
 
 /* ------------------ NAVBAR ------------------ */
@@ -714,16 +722,33 @@ div.presentation p {
 }
 
 /* ------------------ WORKS ------------------ */
-
-
 .works h2 {
-  text-align: center;
+  display: flex;
+  align-items: baseline;
+  margin-top: 10px;
+  margin-right: 0px;
+  margin-bottom: 40px;
   font-size: var(--fs-xl);
   font-family: var(--ff-title);
   font-weight: bold;
-  color: var(--c-text);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-
+.works h2::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -5px;
+  width: 100%;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--c-text-50);
+}
+.works p {
+  margin-bottom: 36px;
+  font-size: var(--fs-m);
+  font-family: var(--ff-text);
+}
 .works h3 {
   text-align: center;
   font-size: var(--fs-s);
@@ -731,27 +756,30 @@ div.presentation p {
   color: var(--c-highlight);
   padding-bottom: 50px;
 }
-
-.works div.cards-grid {
-  display: flex;
-  flex-flow: row wrap;  
+.works .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 12px;
 }
 
-.works div.card {
+.works .card {
   padding: 24px;
-  flex : 2 .8 250px;
-  margin: 12px;
   border: var(--c-border) solid 1px;
   border-radius : 4px;
   transition: all var(--t-normal) ease;
-  
+  transition: opacity var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal), transform var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal);
 }
-/* div.card:hover {
+
+div.card:hover {
   transform: translateY(-12px);
   transition: all var(--t-normal) ease;
-  cursor: pointer;
-} */
+  cursor:default;
+}
 
+.works div.card a {
+  text-decoration: none;
+  color: inherit;
+}
 .works div.card header {
   padding-top: 12px;
   font-size: var(--fs-xl);
@@ -760,12 +788,10 @@ div.presentation p {
   justify-content: space-between;
   align-content: center;
 }
-
 .works div.card main {
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
 .works div.card main h3 {
   margin: 0;
   padding-bottom: 12px ;
@@ -773,7 +799,6 @@ div.presentation p {
   font-family: var(--ff-title);
   font-weight: bold;
 }
-
 .works div.card main p {
   margin: 0;
   margin-bottom: 24px;
@@ -781,12 +806,10 @@ div.presentation p {
   font-family: var(--ff-text);
   color: var(--c-caption);
 }
-
-.works div.card main a {
+.works div.card main p a {
   text-decoration: underline;
   color: var(--c-highlight);
 }
-
 .works div.card footer {
   font-size: var(--fs-s);
   font-family: var(--ff-text);
@@ -795,14 +818,8 @@ div.presentation p {
   justify-content: space-around;
 }
 
+
 /* ------------------ ABOUT ME ------------------ */
-
-/* TODO maybe  all section */
-section.me {
-  opacity: 1;
-  transition: opacity var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal), transform var(--t-very-slow) cubic-bezier(0.645, 0.045, 0.355, 1) var(--t-normal);
-}
-
 .me h2 {
   display: flex;
   align-items: baseline;
@@ -881,13 +898,13 @@ section.me {
   margin-top: 12px;
 }
 
-.me .educations {
+.me .educations .grid{
   display: grid;
   grid-template-columns: 20% auto;
   row-gap: 36px;
   margin-bottom: 36px;
 }
-.me .educations h3 {
+.me .educations  h3 {
   text-align: right;
   margin-right: 24px;
 }
@@ -896,7 +913,7 @@ section.me {
   margin-left: 24px;
 }
 
-.me .experiences {
+.me .experiences .grid {
   display: grid;
   grid-template-columns: 20% auto;
   row-gap: 36px;
@@ -954,7 +971,7 @@ section.me {
   margin-left: 24px;
 }
 
-.me .projects {
+.me .projects .grid {
   display: grid;
   grid-template-columns: 20% auto;
   row-gap: 36px;
@@ -969,7 +986,7 @@ section.me {
   margin-left: 24px;
 }
 
-.me .interests {
+.me .interests .grid {
   display: grid;
   grid-template-columns: 20% auto;
   row-gap: 36px;

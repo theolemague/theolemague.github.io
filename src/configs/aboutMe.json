@@ -27,7 +27,7 @@
             },
             {
                 "name" : "Diplôme d'ingénieur",
-                "university" : "INSA de Lyon, Télecommunications",
+                "university" : "INSA de Lyon, Télécommunications",
                 "city" : "Lyon",
                 "starting-date" : "septembre 2019",
                 "finishing-date" : "aujourd'hui",
@@ -52,7 +52,7 @@
                 "description" :"Machine Learning, IoT, Network Security, Cyber Security"
             },
             {
-                "name" : "Engineering Degree in Telecommunications department",
+                "name" : "Engineering Degree",
                 "university" : "INSA of Lyon, Telecommunications department",
                 "city" : "Lyon",
                 "starting-date" : "September 2019",
@@ -117,7 +117,7 @@
         ],
         "en" : [
             {
-                "name" :  "Consultant developper",
+                "name" :  "Software Development Consultant",
                 "company" : "ETIC & Barrel Wave Solution",
                 "city" : "Lyon",
                 "starting-date" :"May 2020",
@@ -133,7 +133,7 @@
                 ]
             },            
             {
-                "name" : "Intern tools developer",
+                "name" : "Software Development Intern",
                 "company" : "Esker",
                 "city" : "Lyon",
                 "starting-date" : "April 2021",
@@ -146,12 +146,12 @@
                 ]
             },
             {
-                "name" : "Intern plugin developer",
+                "name" : "Software Development Intern",
                 "company" : "IUT Angers & Arexhor",
                 "city" : "Angers & Les Ponts-de-Cé",
                 "starting-date" : "April 2019",
                 "finishing-date" :"June 2019",
-                "description" :"Development of a solution to automate the measurement of different types of sheets from images",
+                "description" :"Development of a solution to automate the measurement of different types of leaves from images",
                 "missions" :[
                     "Recovery and understanding of the Fiji plugin created during the previous course",
                     "Transformation of the Python plugin into a more efficient and documented Java plugin",
@@ -166,8 +166,8 @@
             {
                 "name" : "Programmation, web & IoT",
                 "skills" : [
-                    "langages-C, C++, Java, Go, Python, Swift, SwiftUI, Javascript, Typescript, SQL, Twig, HTML, CSS",
-                    "logiciels, frameworks, outils & librairies-Qt Creator, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
+                    "langages-C, C++, Java, Go, Python, Swift, Javascript, Typescript, SQL, Twig, HTML, CSS",
+                    "logiciels, frameworks, outils & librairies-Qt Creator, SwiftUI, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
                 ]            
             },
             {
@@ -190,8 +190,8 @@
             {
                 "name" : "Programming, web & IoT",
                 "skills" : [
-                    "languages-C, C++, Java, Go, Python, Swift, SwiftUI, Javascript, Typescript, SQL, Twig, HTML, CSS",
-                    "sofwares, frameworks, tools & libraries-Qt Creator, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
+                    "languages-C, C++, Java, Go, Python, Swift, Javascript, Typescript, SQL, Twig, HTML, CSS",
+                    "softwares, frameworks, tools & libraries-Qt Creator, SwiftUI, Android Studio, XCode, Arduino, Atmel Studio, Angular, React, Flask, Spring Boot, Code Ingiter, Symfony 4, Bootstrap, MongoDB, MySQL, Redis"
                 ]            
             },
             {
@@ -244,24 +244,24 @@
                 "description" : [
                     "16 ans de Football en club au niveau régional",
                     "3 ans de Judo en club",
-                    "2 ans de nataion en club",
+                    "2 ans de natation en club",
                     "En loisir : Tennis, Football, VTT"
                 ]
             },
             {
                 "name" : "Jeux vidéo",
                 "description" : [
-                    "Différents type de jeux vidéo",
+                    "Différents types de jeux vidéo",
                     "Intéressé dans la création de jeux vidéo"
                 ]
                 
             },
             {
-                "name" : "Association",
+                "name" : "Associations",
                 "description" : [
-                    "2018 - BDE de GEII Angers, assocation du département GEII de l'IUT d'Angers",
+                    "2018 - BDE de GEII Angers, association du département GEII de l'IUT d'Angers",
                     "2019 - 24h de l'INSA, association du festival annuel des 24h de l'INSA",
-                    "2020 - ASTUS, association du département de Télecommuncation de l'INSA",
+                    "2020 - ASTUS, association du département de Télécommunication de l'INSA",
                     "EGR, Football club de Rouillon en Sarthe"
                 ]
             }  

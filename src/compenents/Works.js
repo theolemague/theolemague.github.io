@@ -26,6 +26,7 @@ const Works = (props) => {
           if (res.data.length === 0) {
             setRepos(null);
           } else {
+            // console.log(res);
             var asyncfunctions = [];
             for (let i in res.data){
               asyncfunctions.push(getRepoInfo(res.data[i].name, res.data[i].html_url));
@@ -37,11 +38,15 @@ const Works = (props) => {
     }
   
     const getRepoInfo = async (name, link) =>{
-      var res = await octokit.rest.repos.getReadme({owner:"theolemague",repo:name})
-      const content = atob(res.data.content)
-      const description = content.substring(content.indexOf('\n')+1, content.indexOf('#', 1))  
-      res = await octokit.rest.repos.listLanguages({owner:"theolemague",repo:name});
-      loadingRepos.push({'id' : loadingRepos.length,'name' : name,'desc' : description, 'languages' : Object.keys(res.data), 'link':link});
+      try {
+        var res = await octokit.rest.repos.getReadme({owner:"theolemague",repo:name})
+        const content = atob(res.data.content)
+        const description = content.substring(content.indexOf('\n')+1, content.indexOf('#', 1))  
+        res = await octokit.rest.repos.listLanguages({owner:"theolemague",repo:name});
+        loadingRepos.push({'id' : loadingRepos.length,'name' : name,'desc' : description, 'languages' : Object.keys(res.data), 'link':link});
+      } catch (error) {
+        return null;
+      }
     }
     getRepos()
   }, []);

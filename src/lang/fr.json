@@ -1,0 +1,16 @@
+{
+  "navbar.home": "Accueil",
+  "navbar.works": "Travaux",
+  "navbar.me": "À propos",
+  "navbar.resume": "Mon CV",
+  "home.hello-world": "Hello world !",
+  "home.i-am-theo": "Je suis Théo",
+  "home.job-title": "Tech Lead & CTO as a Service",
+  "home.presentation": "Après une expérience en tant que développeur Full Stack, je porte maintenant la casquette de Tech Lead et CTO as a Service pour différents projects. Je passionné par la Tech et dévoué a monter des projects à impacte en utilisant une méthode basé sur la simplicité et le rendement, une approche qui a fait ses preuves dans mes projets précédents.",
+  "home.my-works": "Découvrez mes projets",
+  "about-me.title": "A propos de moi",
+  "about-me.text": "Je suis Théo Le Magueresse et je suis passionné par le développement informatique et tout ce qui touche à l'ingénierie Après un baccalauréat scientifique, je me suis orienté vers les sciences de l'électronique et de l'informatique en faisant un DUT GEII Suite à ce DUT, j'ai décidé de poursuivre mes études avec un diplôme d'ingénieur en télécommunications Je suis actuellement en 5ème et dernière année de ce diplôme Je suis à la recherche d'un stage (6 mois) pour compléter ma formation. Je cherche principalement à être développeur dans le domaine de l'IoT, de la robotique, de l'informatique embarquée ou du web & application",
+  "educations.title": "Formations",
+  "works.title": "Expériences professionnelles",
+  "skills.title": "Compétences"
+}

@@ -1,0 +1,252 @@
+{
+  "educations": [
+    {
+      "name": {
+        "fr": "Master en Informatique",
+        "en": "Master in Computer Science"
+      },
+      "university": {
+        "fr": "Université de Stockholm, Informatiques et des Systèmes - Erasmus",
+        "en": "Stockholm University, Department of Computer Science - Erasmus"
+      },
+      "city": {
+        "fr": "Stockholm",
+        "en": "Stockholm"
+      },
+      "start": "08-01-2021",
+      "end": "06-01-2022",
+      "description": {
+        "fr": "Machine Learning, IoT, Sécurité Réseaux, Cyber Sécurité",
+        "en": "Machine Learning, IoT, Network Security, Cyber Security"
+      }
+    },
+    {
+      "name": {
+        "fr": "Diplôme d'ingénieur en télécommunications",
+        "en": "Engineer in Telecommunications"
+      },
+      "university": {
+        "fr": "INSA de Lyon, Télécommunications",
+        "en": "INSA Lyon, Telecommunications"
+      },
+      "city": {
+        "fr": "Lyon",
+        "en": "Lyon"
+      },
+      "start": "09-01-2019",
+      "end": "06-01-2022",
+      "description": {
+        "fr": "Informatique, Réseaux, Traitement de Signal",
+        "en": "Computer Science, Networks, Signal Processing"
+      }
+    },
+    {
+      "name": {
+        "fr": "DUT GEII",
+        "en": "Electrical and Computer Engineering"
+      },
+      "university": {
+        "fr": "IUT d'Angers, Génie Électrique et Informatique Industrielle",
+        "en": "IUT d'Angers, Electrical and Computer Engineering"
+      },
+      "city": {
+        "fr": "Angers",
+        "en": "Angers"
+      },
+      "start": "09-01-2017",
+      "end": "06-01-2019",
+      "description": {
+        "fr": "Électronique, Informatique, Électrique, IoT",
+        "en": "Electronics, Computer Science, Electrical, IoT"
+      }
+    }
+  ],
+  "works": [
+    {
+      "name": {
+        "fr": "Tech Lead",
+        "en": "Tech Lead"
+      },
+      "company": {
+        "fr": "Selego",
+        "en": "Selego"
+      },
+      "city": {
+        "fr": "Amsterdam & Paris",
+        "en": "Amsterdam & Paris"
+      },
+      "start": "01-01-2023",
+      "end": "/",
+      "tasks": [
+        {
+          "fr": "Lead développeur de l'API Engagament, application construite avec beta.gouv.fr",
+          "en": "Lead developer of the API Engagement, application built with beta.gouv.fr"
+        },
+        {
+          "fr": "Developpement de MVP et de produit to scale pour différentes startups dans le multiple domaines",
+          "en": "Development of MVP and product to scale for different startups in multiple domains"
+        },
+        {
+          "fr": "Recrutement, management et formation des équipes de développement de Selego",
+          "en": "Recruitment, management and training of development teams of Selego"
+        },
+        {
+          "fr": "Gestion des budgets des projets et de la structure",
+          "en": "Management of the project budgets and the structure"
+        }
+      ]
+    },
+    {
+      "name": {
+        "fr": "Développeur Full Stack",
+        "en": "Full Stack Developer"
+      },
+      "company": {
+        "fr": "Selego",
+        "en": "Selego"
+      },
+      "city": {
+        "fr": "Amsterdam",
+        "en": "Amsterdam"
+      },
+      "start": "05-01-2022",
+      "end": "08-01-2023",
+      "tasks": [
+        {
+          "fr": "Développement d'applications mobile et web pour différents projets de l'entreprise",
+          "en": "Development of mobile and web applications for different projects of the company"
+        },
+        {
+          "fr": "Création d'API Express, d'applications mobile React Native et de sites web React",
+          "en": "Creation of Express APIs, mobile React Native applications and web React sites"
+        },
+        {
+          "fr": "Relation clientèle et estimation de coût pour les nouveaux projets",
+          "en": "Customer relationship and cost estimation for new projects"
+        }
+      ]
+    },
+    {
+      "name": {
+        "fr": "Full Stack Developer",
+        "en": "Full Stack Developer"
+      },
+      "company": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "city": {
+        "fr": "Lyon & Stockholm",
+        "en": "Lyon & Stockholm"
+      },
+      "start": "05-01-2020",
+      "end": "08-01-2022",
+      "tasks": [
+        {
+          "fr": "Developement d'application de management des flows BIC en partenariat avec ETIC la junior entreprise de l'INSA de Lyon",
+          "en": "Création d'une API Spring Boot en communication avec une base de données SQL"
+        },
+        {
+          "fr": "Dévelopement de système IoT sur différents projets en partenariat avec ETIC la junior entreprise de l'INSA de Lyon",
+          "en": "Création d'une API Spring Boot en communication avec une base de données SQL"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": {
+        "fr": "Programmation web & mobile",
+        "en": "Programmation web & mobile"
+      },
+      "skills": [
+        {
+          "fr": "NodeJs / Express / Flask / Spring",
+          "en": "NodeJs / Express / Flask / Spring"
+        },
+        {
+          "fr": "ReactJs / Angular / React Native",
+          "en": "ReactJs / Angular / React Native"
+        },
+        {
+          "fr": "MongoDB / Postgres / Elasticsearch",
+          "en": "MongoDB / Postgres / Elasticsearch"
+        },
+        {
+          "fr": "Javascript / Typescript / Python / Java",
+          "en": "Javascript / Typescript / Python / Java"
+        }
+      ]
+    },
+    {
+      "name": {
+        "fr": "Lead Tech",
+        "en": "Lead Tech"
+      },
+      "skills": [
+        {
+          "fr": "Recrutement, management et formation",
+          "en": "Recruitment, management and training"
+        },
+        {
+          "fr": "Gestion de budgets",
+          "en": "Management of the project budgets"
+        },
+        {
+          "fr": "Gestion de projets",
+          "en": "Management of projects"
+        },
+        {
+          "fr": "Communication client",
+          "en": "Client communication"
+        }
+      ]
+    },
+    {
+      "name": {
+        "fr": "Langues",
+        "en": "Languages"
+      },
+      "skills": [
+        {
+          "fr": "Français - natif",
+          "en": "French - native"
+        },
+        {
+          "fr": "Anglais - courant",
+          "en": "English - fluent"
+        },
+        {
+          "fr": "Espagnol - notion",
+          "en": "Spanish - basic"
+        },
+        {
+          "fr": "Italien - notion",
+          "en": "Italian - basic"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "DIVIMAP & DIVIDOC",
+      "company": "INSA de Lyon & CICR",
+      "description": "Création de deux applications Java Android pour le CICR afin d'aider à la gestion des dépouilles mortelles pendant la crise sanitaire du COVID-19"
+    },
+    {
+      "name": "Site internet",
+      "company": "Projet personnel",
+      "description": "Création de mon portfolio basé sur le site brittanychiang.com et utilisant le framework React et l'hébergement de pages Github"
+    }
+  ],
+  "personal-interests": [
+    {
+      "name": "Sports",
+      "description": ["16 ans de Football en club au niveau régional", "3 ans de Judo en club", "2 ans de natation en club", "En loisir : Tennis, Football, VTT"]
+    },
+    {
+      "name": "Jeux vidéo",
+      "description": ["Différents thèmes de jeux vidéo", "Intéressé dans la création de jeux vidéo"]
+    }
+  ]
+}

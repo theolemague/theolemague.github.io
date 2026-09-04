@@ -74,8 +74,24 @@ on the left, content on the right. Rows are separated by a hairline, never boxed
 underline goes amber and the text goes ink. `active:scale-[0.98]`. Focus ring is amber,
 2px, offset 2px — never removed.
 
-**Navigation.** Vertical list, `--color-faint` at rest. Active item goes ink and gains a
-short amber tick to its left. The tick moves by `transform` only.
+**Navigation.** A hairline-wide rail on the left at `lg` and up: labels set in Martian
+Mono and rotated to read bottom-to-top (`writing-mode: vertical-rl` plus a 180° turn), so
+the nav costs 44px of width instead of a block of horizontal text. Each item carries its
+own amber tick that scales in on `transform` alone — horizontal on mobile, vertical on the
+rail. Below `lg` the rail becomes a sticky top bar with the labels set normally.
+
+**Map.** The parcours has two views, switched by a toggle in the section header: a
+full-width map (default) and the classic chronological list. The map is a Mercator
+projection of Europe in landscape (900×640), generated at build time by
+`scripts/build-map.mjs` so the browser ships plain SVG paths rather than d3-geo and a
+TopoJSON file. Coastlines are hairlines in `--color-rule`; pins are amber; the dashed
+amber route is the path actually walked, ordered by arrival.
+
+Hovering or clicking a pin fills a **readout panel** overlaid on the map's top-left — the
+one large area of open water in this frame, so it covers no geography. Hover is transient,
+click is sticky. The panel holds a fixed footprint (`13rem` at `md` and up) so moving
+between a one-entry and a two-entry place does not make it jump. Below `md` it stops being
+an overlay and stacks under the map, since there is no hover on touch.
 
 ## 5. Layout
 
@@ -100,6 +116,8 @@ decorative shadows anywhere in this project.
 - **Don't** use pure white or pure black. Both ends are tinted.
 - **Don't** add a second accent colour, including in the 3D version. Engine glow is amber.
 - **Don't** use cyan/violet for the space scene — it is the exact cliché this direction exists to avoid.
+- **Don't** hand-edit `src/data/europe-map.json` — it is generated. Change the frame or the
+  places in `resume.json` and run `bun run build:map`.
 - **Don't** centre body text. The grid is left-aligned throughout.
 
 ## 8. Responsive

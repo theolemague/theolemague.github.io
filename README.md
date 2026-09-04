@@ -64,6 +64,7 @@ serious layout with a note explaining why.
 
 ```
 .github/workflows/deploy.yml   # build + publish to GitHub Pages on push to master
+scripts/build-map.mjs          # generates the Europe map SVG paths (bun run build:map)
 
 src/
   main.tsx                     # React entry
@@ -71,7 +72,8 @@ src/
   index.css                    # Tailwind import + design tokens
 
   data/
-    resume.json                # single source of truth: education, work, skills, projects
+    resume.json                # single source of truth: profile, education, work, projects, places
+    europe-map.json            # GENERATED — SVG paths + projected pin coordinates
 
   lang/
     i18n.ts                    # i18next setup
@@ -87,8 +89,11 @@ src/
       index.tsx                # the "serious or not serious ?" entry
     serious/
       index.tsx                # declares its own <Routes>
-      home.tsx
-      components/              # components used only by this page
+      home.tsx                 # the one-pager: intro, parcours, projects, contact
+      components/
+        nav-bar.tsx            # vertical rail, scroll-spy
+        parcours-map.tsx       # full-width Europe map + hover readout
+        github-repos.tsx       # public repos, one API call
     fun/
       index.tsx
       home.tsx
@@ -129,6 +134,7 @@ bun run dev        # http://localhost:3000
 
 ```zsh
 bun run build      # type-check, then build to dist/
+bun run build:map  # regenerate the Europe map after changing places in resume.json
 bun run preview    # serve the production build locally
 bun run format     # Prettier over the whole project
 ```
@@ -153,14 +159,14 @@ each one shippable on its own.
 - [x] **Design direction** — locked as "mission dossier", written up in `DESIGN.md`
 - [x] **Foundation** — clean `src/`, upgrade dependencies, Prettier config, GitHub Actions
 - [x] **The gate** — the entry choice, remembered between visits
-- [ ] **Serious version** — nav, about, education, experience, skills
+- [x] **Serious version** — one page: intro, parcours, projects, contact
 - [x] **Language switcher** — rebuild `en.json` against the real schema, wire the toggle
 - [ ] **Ship it** — first deploy, live at theolemague.github.io
 - [ ] **Fun version, scene** — canvas, camera, waypoints, stars
 - [ ] **Fun version, ship** — flight path between sections, camera follow
 - [ ] **Fun version, fallback** — no-WebGL and reduced-motion paths
-- [ ] **Content pass** — the bio still describes a student looking for an internship
-- [ ] Projects section, mobile polish, SEO and social preview
+- [ ] **Content pass** — LinkedIn URL, API Engagement stack, GitHub repo descriptions
+- [ ] Mobile polish, social preview image, skills section if wanted
 
 ### Known debt, for the record
 

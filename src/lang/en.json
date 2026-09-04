@@ -3,39 +3,56 @@
     "intro": "Before you come in",
     "question": "Do you want the serious version, or the not serious one?",
     "serious": "Serious version",
-    "serious-hint": "The clean portfolio. My background, my experience, my skills. The one you send with a job application.",
+    "serious-hint": "The clean portfolio. My background, my projects, how to reach me. The one you send with a job application.",
     "fun": "Not serious version",
     "fun-hint": "The same content, but in space. A ship flies you from one section to the next.",
-    "footer": "You can change your mind at any time.",
-    "enter": "Enter"
+    "enter": "Enter",
+    "footer": "You can change your mind at any time."
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "education": "Education",
-    "experience": "Experience",
-    "skills": "Skills"
+    "intro": "Intro",
+    "parcours": "Background",
+    "projects": "Projects",
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Hello world!",
-    "name": "I am Théo",
+    "name": "Théo Le Magueresse",
     "role": "Tech Lead & CTO as a Service",
-    "intro": "After several years as a Full Stack developer, I now wear the Tech Lead and CTO as a Service hat. I care about tech and about projects that actually matter, and I build them with a simple, effective method: ship fast, keep the code readable, and never add complexity without a reason.",
+    "intro": "Telecommunications engineer from INSA Lyon, with a year at Stockholm University. I started in electronics and embedded systems before moving to web and mobile. Today at Selego, between Amsterdam and Paris, I take startups from MVP all the way to scale: I build, I recruit and I train the teams.",
     "cta": "See my background"
   },
   "sections": {
-    "about": "About me",
-    "education": "Education",
-    "experience": "Work experience",
-    "skills": "Skills"
+    "parcours": "Background",
+    "projects": "Projects",
+    "contact": "Contact"
   },
-  "about": {
-    "text": "Telecommunications engineer from INSA Lyon, with a year at Stockholm University on an Erasmus exchange. I started in electronics and embedded systems before moving to web and mobile. Today I am Tech Lead at Selego, between Amsterdam and Paris: I build, I recruit and train the teams, and I take startups from MVP all the way to scale. Among other things, I am lead developer of the API Engagement, built with beta.gouv.fr."
+  "parcours": {
+    "education": "Education",
+    "experience": "Experience",
+    "hint": "Hover or click a point",
+    "view-map": "Map",
+    "view-list": "List",
+    "map-label": "Map of the places in my background"
+  },
+  "projects": {
+    "selected": "Selected",
+    "github": "On GitHub",
+    "github-hint": "Public repositories, most recently updated.",
+    "loading": "Loading repositories…",
+    "error": "Could not load the repositories right now.",
+    "view": "View"
+  },
+  "contact": {
+    "text": "Got a project in mind, a question, or just want to talk? Drop me a line.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
   },
   "ui": {
     "present": "present",
     "switch-to-serious": "Switch to the serious version",
-    "switch-to-fun": "Switch to the not serious version",
+    "switch-to-fun": "Not serious version",
     "back-to-gate": "Back to the choice",
     "language": "Language"
   }

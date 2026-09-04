@@ -1,4 +1,11 @@
 {
+  "profile": {
+    "name": "Théo Le Magueresse",
+    "email": "theo.lm@hotmail.fr",
+    "github": "https://github.com/theolemague",
+    "githubUser": "theolemague",
+    "linkedin": ""
+  },
   "educations": [
     {
       "name": {
@@ -18,7 +25,8 @@
       "description": {
         "fr": "Machine Learning, IoT, Sécurité Réseaux, Cyber Sécurité",
         "en": "Machine Learning, IoT, Network Security, Cyber Security"
-      }
+      },
+      "places": ["stockholm"]
     },
     {
       "name": {
@@ -38,7 +46,8 @@
       "description": {
         "fr": "Informatique, Réseaux, Traitement de Signal",
         "en": "Computer Science, Networks, Signal Processing"
-      }
+      },
+      "places": ["lyon"]
     },
     {
       "name": {
@@ -58,7 +67,8 @@
       "description": {
         "fr": "Électronique, Informatique, Électrique, IoT",
         "en": "Electronics, Computer Science, Electrical, IoT"
-      }
+      },
+      "places": ["angers"]
     }
   ],
   "works": [
@@ -94,7 +104,8 @@
           "fr": "Gestion des budgets des projets et de la structure",
           "en": "Management of the project budgets and the structure"
         }
-      ]
+      ],
+      "places": ["amsterdam", "paris"]
     },
     {
       "name": {
@@ -124,7 +135,8 @@
           "fr": "Relation clientèle et estimation de coût pour les nouveaux projets",
           "en": "Customer relationship and cost estimation for new projects"
         }
-      ]
+      ],
+      "places": ["amsterdam"]
     },
     {
       "name": {
@@ -144,20 +156,21 @@
       "tasks": [
         {
           "fr": "Developement d'application de management des flows BIC en partenariat avec ETIC la junior entreprise de l'INSA de Lyon",
-          "en": "Création d'une API Spring Boot en communication avec une base de données SQL"
+          "en": "Development of a BIC flow management application, in partnership with ETIC, the junior enterprise of INSA Lyon"
         },
         {
           "fr": "Dévelopement de système IoT sur différents projets en partenariat avec ETIC la junior entreprise de l'INSA de Lyon",
-          "en": "Création d'une API Spring Boot en communication avec une base de données SQL"
+          "en": "Development of IoT systems across several projects, in partnership with ETIC, the junior enterprise of INSA Lyon"
         }
-      ]
+      ],
+      "places": ["lyon", "stockholm"]
     }
   ],
   "skills": [
     {
       "name": {
         "fr": "Programmation web & mobile",
-        "en": "Programmation web & mobile"
+        "en": "Web & mobile programming"
       },
       "skills": [
         {
@@ -229,14 +242,43 @@
   ],
   "projects": [
     {
-      "name": "DIVIMAP & DIVIDOC",
-      "company": "INSA de Lyon & CICR",
-      "description": "Création de deux applications Java Android pour le CICR afin d'aider à la gestion des dépouilles mortelles pendant la crise sanitaire du COVID-19"
+      "name": "API Engagement",
+      "context": {
+        "fr": "Selego × beta.gouv.fr",
+        "en": "Selego × beta.gouv.fr"
+      },
+      "description": {
+        "fr": "Lead développeur de l'API Engagement, une application construite avec beta.gouv.fr.",
+        "en": "Lead developer of the API Engagement, an application built with beta.gouv.fr."
+      },
+      "stack": [],
+      "link": ""
     },
     {
-      "name": "Site internet",
-      "company": "Projet personnel",
-      "description": "Création de mon portfolio basé sur le site brittanychiang.com et utilisant le framework React et l'hébergement de pages Github"
+      "name": "DIVIMAP & DIVIDOC",
+      "context": {
+        "fr": "INSA de Lyon × CICR",
+        "en": "INSA Lyon × ICRC"
+      },
+      "description": {
+        "fr": "Deux applications Java Android construites pour le CICR, pour aider à la gestion des dépouilles mortelles pendant la crise sanitaire du COVID-19.",
+        "en": "Two Java Android applications built for the ICRC, to support the management of human remains during the COVID-19 crisis."
+      },
+      "stack": ["Java", "Android"],
+      "link": ""
+    },
+    {
+      "name": "theolemague.github.io",
+      "context": {
+        "fr": "Projet personnel",
+        "en": "Personal project"
+      },
+      "description": {
+        "fr": "Ce site. Deux versions du même parcours : une sérieuse, une pas sérieuse en 3D.",
+        "en": "This site. Two versions of the same background: one serious, one not serious, in 3D."
+      },
+      "stack": ["React", "TypeScript", "Tailwind CSS", "three.js"],
+      "link": "https://github.com/theolemague/theolemague.github.io"
     }
   ],
   "personal-interests": [
@@ -247,6 +289,58 @@
     {
       "name": "Jeux vidéo",
       "description": ["Différents thèmes de jeux vidéo", "Intéressé dans la création de jeux vidéo"]
+    }
+  ],
+  "places": [
+    {
+      "id": "angers",
+      "name": "Angers",
+      "country": {
+        "fr": "France",
+        "en": "France"
+      },
+      "lat": 47.4784,
+      "lon": -0.5632
+    },
+    {
+      "id": "lyon",
+      "name": "Lyon",
+      "country": {
+        "fr": "France",
+        "en": "France"
+      },
+      "lat": 45.764,
+      "lon": 4.8357
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "country": {
+        "fr": "France",
+        "en": "France"
+      },
+      "lat": 48.8566,
+      "lon": 2.3522
+    },
+    {
+      "id": "amsterdam",
+      "name": "Amsterdam",
+      "country": {
+        "fr": "Pays-Bas",
+        "en": "Netherlands"
+      },
+      "lat": 52.3676,
+      "lon": 4.9041
+    },
+    {
+      "id": "stockholm",
+      "name": "Stockholm",
+      "country": {
+        "fr": "Suède",
+        "en": "Sweden"
+      },
+      "lat": 59.3293,
+      "lon": 18.0686
     }
   ]
 }

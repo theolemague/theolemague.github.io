@@ -24,6 +24,12 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  /* the mobile nav is sticky, so anchored sections must clear it when jumped to */
+  section[id] {
+    scroll-margin-top: 4.5rem;
   }
 
   body {
@@ -69,6 +75,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {

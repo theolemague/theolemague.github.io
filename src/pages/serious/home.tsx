@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import LangSwitcher from '@/components/lang-switcher';
+import { buildJourney, buildParcours } from '@/data/parcours';
 import RESUME from '@/data/resume.json';
 import GithubRepos from './components/github-repos';
 import ParcoursMap from './components/parcours-map';
@@ -21,42 +22,8 @@ const Home = () => {
   const lang = i18n.language.startsWith('fr') ? 'fr' : 'en';
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
 
-  const formatRange = (start: string, end: string) => `${new Date(start).getFullYear()} — ${end === '/' ? t('ui.present') : new Date(end).getFullYear()}`;
-
-  // education and work normalised into one shape, newest first — this is the
-  // "parcours": the two tracks read as a single path rather than two lists
-  const parcours = [
-    ...RESUME.educations.map(item => ({
-      type: 'education' as const,
-      title: item.name[lang],
-      subtitle: item.university[lang],
-      city: item.city[lang],
-      start: item.start,
-      end: item.end,
-      details: [item.description[lang]],
-      places: item.places,
-      period: formatRange(item.start, item.end),
-    })),
-    ...RESUME.works.map(item => ({
-      type: 'experience' as const,
-      title: item.name[lang],
-      subtitle: item.company[lang],
-      city: item.city[lang],
-      start: item.start,
-      end: item.end,
-      details: item.tasks.map(task => task[lang]),
-      places: item.places,
-      period: formatRange(item.start, item.end),
-    })),
-  ].sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime());
-
-  const journey = RESUME.places
-    .map(place => ({
-      id: place.id,
-      arrival: Math.min(...parcours.filter(item => item.places.includes(place.id)).map(item => new Date(item.start).getTime())),
-    }))
-    .sort((a, b) => a.arrival - b.arrival)
-    .map(place => place.id);
+  const parcours = buildParcours(lang, t('ui.present'));
+  const journey = buildJourney(parcours);
 
   const contacts = [
     { label: t('contact.email'), value: RESUME.profile.email, href: `mailto:${RESUME.profile.email}` },

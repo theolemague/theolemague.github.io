@@ -52,9 +52,17 @@
   },
   "ui": {
     "present": "aujourd'hui",
-    "switch-to-serious": "Passer en version sérieuse",
+    "switch-to-serious": "Version sérieuse",
     "switch-to-fun": "Version pas sérieuse",
     "back-to-gate": "Retour au choix",
     "language": "Langue"
+  },
+  "fun": {
+    "hint": "Maintenez le clic ou glissez pour piloter · ZQSD ou flèches · les mondes s'ouvrent dans l'ordre, suivez la cible",
+    "speed": "Vitesse",
+    "target": "Cible",
+    "out-of-range": "Hors zone — retour automatique",
+    "undock": "Éloignez-vous pour repartir",
+    "unlocked": "Nouveau monde"
   }
 }

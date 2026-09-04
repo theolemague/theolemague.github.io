@@ -52,9 +52,17 @@
   },
   "ui": {
     "present": "present",
-    "switch-to-serious": "Switch to the serious version",
+    "switch-to-serious": "Serious version",
     "switch-to-fun": "Not serious version",
     "back-to-gate": "Back to the choice",
     "language": "Language"
+  },
+  "fun": {
+    "hint": "Hold or drag to fly · WASD or arrows · worlds open in order, follow the target",
+    "speed": "Speed",
+    "target": "Target",
+    "out-of-range": "Out of range — pulling you back",
+    "undock": "Fly away to undock",
+    "unlocked": "New world"
   }
 }

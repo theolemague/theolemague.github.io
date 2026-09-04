@@ -30,10 +30,11 @@
   "parcours": {
     "education": "Formation",
     "experience": "Expérience",
-    "hint": "Survolez ou cliquez un point",
+    "hint": "Numérotés par ordre d'arrivée — cliquez un point",
     "view-map": "Carte",
     "view-list": "Liste",
-    "map-label": "Carte des lieux du parcours"
+    "map-label": "Carte des lieux du parcours",
+    "close": "Fermer"
   },
   "projects": {
     "selected": "Sélection",

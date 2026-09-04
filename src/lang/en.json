@@ -30,10 +30,11 @@
   "parcours": {
     "education": "Education",
     "experience": "Experience",
-    "hint": "Hover or click a point",
+    "hint": "Numbered in order of arrival — click a point",
     "view-map": "Map",
     "view-list": "List",
-    "map-label": "Map of the places in my background"
+    "map-label": "Map of the places in my background",
+    "close": "Close"
   },
   "projects": {
     "selected": "Selected",

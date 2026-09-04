@@ -87,11 +87,12 @@ projection of Europe in landscape (900×640), generated at build time by
 TopoJSON file. Coastlines are hairlines in `--color-rule`; pins are amber; the dashed
 amber route is the path actually walked, ordered by arrival.
 
-Hovering or clicking a pin fills a **readout panel** overlaid on the map's top-left — the
-one large area of open water in this frame, so it covers no geography. Hover is transient,
-click is sticky. The panel holds a fixed footprint (`13rem` at `md` and up) so moving
-between a one-entry and a two-entry place does not make it jump. Below `md` it stops being
-an overlay and stacks under the map, since there is no hover on touch.
+Pins are numbered discs ordered by arrival, so the map reads chronologically without a
+legend. Hover and focus light the pin alone — it fills amber, the number inverts to canvas,
+a ring scales out — which says *click me* and nothing more. Clicking opens a **readout
+card** pinned to that pin, on whichever side of it has room, with a close button; Escape
+closes it too, and the other pins drop to 35% opacity. Below `md` the card stops being an
+overlay and stacks under the map, since there is no hover on touch.
 
 ## 5. Layout
 

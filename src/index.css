@@ -1,16 +1,85 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
+@theme {
+  --color-canvas: oklch(0.16 0.006 62);
+  --color-surface: oklch(0.21 0.007 62);
+  --color-ink: oklch(0.94 0.008 62);
+  --color-muted: oklch(0.68 0.008 62);
+  --color-faint: oklch(0.6 0.008 62);
+  --color-rule: oklch(0.3 0.008 62);
+  --color-amber: oklch(0.78 0.16 62);
+  --color-amber-dim: oklch(0.58 0.11 62);
+
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Martian Mono', ui-monospace, monospace;
+
+  --radius-sharp: 0px;
+  --radius-tight: 2px;
+  --radius-soft: 4px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
-  .link {
-    @apply text-sky-400 hover:underline transition-all duration-300;
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Martian Mono metadata: dates, indices, labels. Instrument readout, not fine print. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Width is the hierarchy tool in this system — see DESIGN.md section 3. */
+  .display {
+    font-stretch: 118%;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (hover: hover) {
+  .gate-panels:has(> a:hover) > a:not(:hover) {
+    opacity: 0.35;
   }
 }

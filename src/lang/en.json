@@ -1,33 +1,42 @@
 {
-  "title.home": "Beta | Hello world ! I am",
-  "title.home-sub": "Engineering student in computer sciences",
-  "title.me": "About me",
-  "title.me-sub": "Here is my background",
-  "title.works": "00. My works",
-  "title.works-sub": "Here are some of the works I have done which are on my GitHub",
-  "title.about-me": "01. About me",
-  "title.education": "02. Educations",
-  "title.experiences": "03. Work experience",
-  "title.skills": "04. Skills",
-  "title.project": "05. Projects",
-  "title.personal-interest": "06. Personal interests",
-  "navbar.home": "Home",
-  "navbar.works": "Works",
-  "navbar.me": "About me",
-  "navbar.resume": "My resume",
-  "labels.years-old": "years old",
-  "labels.home-link": "Check my works",
-  "labels.from": "From",
-  "labels.to": "to",
-  "labels.theme": "Choose a theme",
-  "labels.c-background": "Choose a background color",
-  "labels.c-text": "Choose a text color",
-  "labels.c-caption": "Choose a caption color",
-  "labels.c-highlight": "Choose a highlight color",
-  "labels.ff-title": "Choose a title font",
-  "labels.ff-text": "Choose a text font",
-  "labels.print": "Print",
-  "labels.no-works": "No works available :/",
-  "labels.loading": "Loading...",
-  "text.home": "I am Théo Le Magueresse, a 5th year student at the INSA engineering school in Lyon in the Telecommunications department. I am currently on exchange at the Stockholm University for the next coming year (from August 2021 to June 2022). Before that, I obtained a DUT (University Diploma in Technology, a 2-years French diploma) in Electrical Engineering and Industrial Computing (GEII) at the IUT (University Institute of Technology) of Angers."
+  "gate": {
+    "intro": "Before you come in",
+    "question": "Do you want the serious version, or the not serious one?",
+    "serious": "Serious version",
+    "serious-hint": "The clean portfolio. My background, my experience, my skills. The one you send with a job application.",
+    "fun": "Not serious version",
+    "fun-hint": "The same content, but in space. A ship flies you from one section to the next.",
+    "footer": "You can change your mind at any time.",
+    "enter": "Enter"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "experience": "Experience",
+    "skills": "Skills"
+  },
+  "hero": {
+    "greeting": "Hello world!",
+    "name": "I am Théo",
+    "role": "Tech Lead & CTO as a Service",
+    "intro": "After several years as a Full Stack developer, I now wear the Tech Lead and CTO as a Service hat. I care about tech and about projects that actually matter, and I build them with a simple, effective method: ship fast, keep the code readable, and never add complexity without a reason.",
+    "cta": "See my background"
+  },
+  "sections": {
+    "about": "About me",
+    "education": "Education",
+    "experience": "Work experience",
+    "skills": "Skills"
+  },
+  "about": {
+    "text": "Telecommunications engineer from INSA Lyon, with a year at Stockholm University on an Erasmus exchange. I started in electronics and embedded systems before moving to web and mobile. Today I am Tech Lead at Selego, between Amsterdam and Paris: I build, I recruit and train the teams, and I take startups from MVP all the way to scale. Among other things, I am lead developer of the API Engagement, built with beta.gouv.fr."
+  },
+  "ui": {
+    "present": "present",
+    "switch-to-serious": "Switch to the serious version",
+    "switch-to-fun": "Switch to the not serious version",
+    "back-to-gate": "Back to the choice",
+    "language": "Language"
+  }
 }

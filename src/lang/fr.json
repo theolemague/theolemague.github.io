@@ -1,16 +1,42 @@
 {
-  "navbar.home": "Accueil",
-  "navbar.works": "Travaux",
-  "navbar.me": "À propos",
-  "navbar.resume": "Mon CV",
-  "home.hello-world": "Hello world !",
-  "home.i-am-theo": "Je suis Théo",
-  "home.job-title": "Tech Lead & CTO as a Service",
-  "home.presentation": "Après une expérience en tant que développeur Full Stack, je porte maintenant la casquette de Tech Lead et CTO as a Service pour différents projects. Je passionné par la Tech et dévoué a monter des projects à impacte en utilisant une méthode basé sur la simplicité et le rendement, une approche qui a fait ses preuves dans mes projets précédents.",
-  "home.my-works": "Découvrez mes projets",
-  "about-me.title": "A propos de moi",
-  "about-me.text": "Je suis Théo Le Magueresse et je suis passionné par le développement informatique et tout ce qui touche à l'ingénierie Après un baccalauréat scientifique, je me suis orienté vers les sciences de l'électronique et de l'informatique en faisant un DUT GEII Suite à ce DUT, j'ai décidé de poursuivre mes études avec un diplôme d'ingénieur en télécommunications Je suis actuellement en 5ème et dernière année de ce diplôme Je suis à la recherche d'un stage (6 mois) pour compléter ma formation. Je cherche principalement à être développeur dans le domaine de l'IoT, de la robotique, de l'informatique embarquée ou du web & application",
-  "educations.title": "Formations",
-  "works.title": "Expériences professionnelles",
-  "skills.title": "Compétences"
+  "gate": {
+    "intro": "Avant d'entrer",
+    "question": "Vous voulez la version sérieuse, ou pas sérieuse ?",
+    "serious": "Version sérieuse",
+    "serious-hint": "Le portfolio propre. Mon parcours, mes expériences, mes compétences. Celui qu'on envoie avec une candidature.",
+    "fun": "Version pas sérieuse",
+    "fun-hint": "Le même contenu, mais dans l'espace. Un vaisseau vous emmène d'une section à l'autre.",
+    "footer": "Vous pourrez changer d'avis à tout moment.",
+    "enter": "Entrer"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "education": "Formations",
+    "experience": "Expériences",
+    "skills": "Compétences"
+  },
+  "hero": {
+    "greeting": "Hello world !",
+    "name": "Je suis Théo",
+    "role": "Tech Lead & CTO as a Service",
+    "intro": "Après plusieurs années comme développeur Full Stack, je porte aujourd'hui la casquette de Tech Lead et de CTO as a Service. Je suis passionné par la tech et par les projets à impact, que je construis avec une méthode simple et efficace : livrer vite, garder le code lisible, et ne rien complexifier sans raison.",
+    "cta": "Découvrir mon parcours"
+  },
+  "sections": {
+    "about": "À propos de moi",
+    "education": "Formations",
+    "experience": "Expériences professionnelles",
+    "skills": "Compétences"
+  },
+  "about": {
+    "text": "Ingénieur en télécommunications diplômé de l'INSA de Lyon, avec un passage d'un an à l'Université de Stockholm en Erasmus. J'ai commencé par l'électronique et l'embarqué avant de basculer vers le web et le mobile. Aujourd'hui, chez Selego entre Amsterdam et Paris, je suis Tech Lead : je développe, je recrute et je forme les équipes, et j'accompagne des startups du MVP jusqu'au passage à l'échelle. Je suis notamment lead développeur de l'API Engagement, construite avec beta.gouv.fr."
+  },
+  "ui": {
+    "present": "aujourd'hui",
+    "switch-to-serious": "Passer en version sérieuse",
+    "switch-to-fun": "Passer en version pas sérieuse",
+    "back-to-gate": "Retour au choix",
+    "language": "Langue"
+  }
 }

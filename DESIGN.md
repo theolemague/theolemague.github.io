@@ -82,10 +82,18 @@ rail. Below `lg` the rail becomes a sticky top bar with the labels set normally.
 
 **Map.** The parcours has two views, switched by a toggle in the section header: a
 full-width map (default) and the classic chronological list. The map is a Mercator
-projection of Europe in landscape (900×640), generated at build time by
+projection of Europe (900×860 — the proportion falls out of the frame rather than being
+chosen: Gibraltar to southern Scandinavia is close to square), generated at build time by
 `scripts/build-map.mjs` so the browser ships plain SVG paths rather than d3-geo and a
 TopoJSON file. Coastlines are hairlines in `--color-rule`; pins are amber; the dashed
 amber route is the path actually walked, ordered by arrival.
+
+A country is drawn whole or not at all: a shape the frame would slice reads as a mistake,
+so the generator drops it — which is why Finland, Ukraine and Greece are absent rather than
+half-present. The southern edge sits below Tarifa so that Iberia and Italy make it in
+whole. Two countries are drawn anyway, cut by the top edge: Sweden, which holds a pin and
+at 69°N cannot fit whole alongside France in any frame that is not portrait, and Norway,
+without which Sweden reads as an island.
 
 Pins are numbered discs ordered by arrival, so the map reads chronologically without a
 legend. Hover and focus light the pin alone — it fills amber, the number inverts to canvas,

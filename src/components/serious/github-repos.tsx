@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,6 +12,16 @@ interface Repo {
   language: string | null;
   fork: boolean;
 }
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06 } },
+};
+
+const rise = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
+};
 
 const GithubRepos = () => {
   const { t } = useTranslation();
@@ -45,17 +56,19 @@ const GithubRepos = () => {
   if (status === 'error' || repos.length === 0) return <p className="label text-faint">{t('projects.error')}</p>;
 
   return (
-    <ul>
+    // the repositories land after the section has already played, so they run their
+    // own stagger rather than inheriting one that is over
+    <motion.ul variants={container} initial="hidden" animate="show">
       {repos.map(repo => (
-        <li key={repo.id}>
+        <motion.li key={repo.id} variants={rise}>
           <a
             href={repo.html_url}
             target="_blank"
             rel="noreferrer"
-            className="group grid gap-1 border-t border-rule py-5 transition-colors duration-300 md:grid-cols-[220px_1fr] md:gap-8 [@media(hover:hover)]:hover:bg-white/2">
+            className="group grid gap-1 border-t border-rule py-5 transition-colors duration-300 md:grid-cols-[220px_1fr] md:gap-8 [@media(hover:hover)]:hover:bg-ink/4">
             <span className="flex items-baseline gap-3">
               <span className="text-[0.9375rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-primary">{repo.name}</span>
-              <span aria-hidden="true" className="text-faint transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:group-hover:translate-x-1">
+              <span aria-hidden="true" className="text-faint transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:group-hover:translate-x-2">
                 ↗
               </span>
             </span>
@@ -64,9 +77,9 @@ const GithubRepos = () => {
               {repo.language && <span className="label text-faint">{repo.language}</span>}
             </span>
           </a>
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   );
 };
 

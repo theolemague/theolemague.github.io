@@ -11,13 +11,19 @@ export interface Waypoint {
   dockRadius: number;
 }
 
-// three cannot parse oklch, so each token is read off :root and handed to the
-// canvas, which gives it back as plain sRGB hex. index.css stays the only place
-// a colour is written down.
+// three cannot parse oklch, so each token is read off a hidden probe and handed to
+// the canvas, which gives it back as plain sRGB hex. index.css stays the only place
+// a colour is written down. The probe is pinned to the dark theme because the flight
+// is a night instrument view — the page can go light, space does not.
 const CONTEXT = document.createElement('canvas').getContext('2d')!;
 
+const PROBE = document.createElement('div');
+PROBE.dataset.theme = 'dark';
+PROBE.style.display = 'none';
+document.body.appendChild(PROBE);
+
 const readToken = (token: string) => {
-  CONTEXT.fillStyle = getComputedStyle(document.documentElement).getPropertyValue(token);
+  CONTEXT.fillStyle = getComputedStyle(PROBE).getPropertyValue(token);
   return CONTEXT.fillStyle as string;
 };
 
@@ -31,6 +37,8 @@ export const COLORS = {
   primary: readToken('--color-primary'),
   primaryDim: readToken('--color-primary-dim'),
 };
+
+PROBE.remove();
 
 // nothing marks the route any more, so the worlds are scattered rather than
 // arranged: you find them by flying and by watching the needle, not by reading a

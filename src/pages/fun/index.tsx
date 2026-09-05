@@ -1,9 +1,11 @@
 import { Canvas } from '@react-three/fiber';
-import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 
 import { buildJourney, buildParcours } from '@/data/parcours';
+import { getTheme } from '@/utils/theme';
 import Hud from '../../components/fun/hud';
 import Scene from '../../components/fun/scene';
 import { buildSystem, Telemetry } from '../../utils/world-system';
@@ -31,6 +33,17 @@ const Fun = () => {
   const [reached, setReached] = useState(0);
   const telemetry = useRef<Telemetry>({ speed: 0, targetId: null, targetDistance: 0, targetBearing: 0, outOfRange: false });
 
+  // space is dark whatever the rest of the site is doing. Not stored, so the choice
+  // made on the serious version comes back untouched on the way out.
+  useEffect(() => {
+    if (!flightSupported) return;
+    const previousTheme = getTheme();
+    document.documentElement.dataset.theme = 'dark';
+    return () => {
+      document.documentElement.dataset.theme = previousTheme;
+    };
+  }, [flightSupported]);
+
   const parcours = buildParcours(lang, t('ui.present'));
   const journey = buildJourney(parcours);
   const waypoints = buildSystem(parcours, journey, lang, { intro: t('nav.intro'), projects: t('sections.projects'), contact: t('sections.contact') });
@@ -50,7 +63,12 @@ const Fun = () => {
   if (!flightSupported) return <Navigate to="/serious" replace />;
 
   return (
-    <div className="px-6 md:px-12 fixed inset-0 touch-none">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="px-6 md:px-12 fixed inset-0 touch-none">
       {/* flat keeps tone mapping off, so the amber lands on screen as the exact
           value DESIGN.md specifies rather than a filmic approximation of it */}
       <Canvas flat dpr={[1, window.innerWidth < 768 ? 1.25 : 2]} camera={{ fov: 62, near: 0.1, far: 700 }}>
@@ -59,7 +77,7 @@ const Fun = () => {
       {/* nothing is announced at the start: reached 0 means only the presentation
           is open, and it was never unlocked by anything */}
       <Hud telemetry={telemetry} unlocked={unlocked} justUnlocked={reached > 0 ? objective : null} docked={docked} parcours={parcours} lang={lang} hasFlown={hasFlown} />
-    </div>
+    </motion.div>
   );
 };
 

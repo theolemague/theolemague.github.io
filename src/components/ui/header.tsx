@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import LangSwitcher from './lang-switcher';
+import ThemeSwitcher from './theme-switcher';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -37,6 +38,13 @@ const Header = () => {
             {isFun ? t('ui.switch-to-serious') : t('ui.switch-to-fun')} →
           </Link>
           <LangSwitcher />
+          {/* the flight is a night instrument view — no theme choice while in it */}
+          {!isFun && (
+            <>
+              <span aria-hidden="true" className="h-3 w-px bg-rule" />
+              <ThemeSwitcher />
+            </>
+          )}
         </div>
       </header>
 
@@ -64,7 +72,15 @@ const Header = () => {
               {isFun ? t('ui.switch-to-serious') : t('ui.switch-to-fun')} →
             </Link>
             <div className="flex items-center justify-between border-t border-rule pt-4">
-              <LangSwitcher />
+              <div className="flex items-center gap-5">
+                <LangSwitcher />
+                {!isFun && (
+                  <>
+                    <span aria-hidden="true" className="h-3 w-px bg-rule" />
+                    <ThemeSwitcher />
+                  </>
+                )}
+              </div>
               <button type="button" onClick={() => setIsMenuOpen(false)} aria-label={t('ui.close')} className="label px-2 py-2 text-faint">
                 ✕
               </button>

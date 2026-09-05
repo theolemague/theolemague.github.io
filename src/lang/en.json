@@ -1,7 +1,10 @@
 {
   "gate": {
     "serious": "Serious version",
-    "fun": "Not serious version"
+    "fun": "Not serious version",
+    "serious-hint": "The background, the projects, the contact details. Read it in two minutes.",
+    "fun-hint": "The same background, flown through. Take the ship and go and find it.",
+    "enter": "Enter"
   },
   "nav": {
     "intro": "Intro",
@@ -41,7 +44,9 @@
     "back-to-gate": "Back to the choice",
     "language": "Language",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "dark": "Dark",
+    "light": "Light"
   },
   "fun": {
     "hint": "Hold or drag to fly · WASD or arrows · worlds open in order, follow the target",

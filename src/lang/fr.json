@@ -1,7 +1,10 @@
 {
   "gate": {
     "serious": "Version sérieuse",
-    "fun": "Version pas sérieuse"
+    "fun": "Version pas sérieuse",
+    "serious-hint": "Le parcours, les projets, le contact. Ça se lit en deux minutes.",
+    "fun-hint": "Le même parcours, mais en vol. Prenez le vaisseau et allez le chercher.",
+    "enter": "Entrer"
   },
   "nav": {
     "intro": "Présentation",
@@ -41,7 +44,9 @@
     "back-to-gate": "Retour au choix",
     "language": "Langue",
     "menu": "Menu",
-    "close": "Fermer"
+    "close": "Fermer",
+    "dark": "Sombre",
+    "light": "Clair"
   },
   "fun": {
     "hint": "Maintenez le clic ou glissez pour piloter · ZQSD ou flèches · les mondes s'ouvrent dans l'ordre, suivez la cible",

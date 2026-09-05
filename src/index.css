@@ -16,13 +16,47 @@
   --color-rule: oklch(0.3 0.008 62);
 
   --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'Martian Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   --radius-sharp: 0px;
   --radius-tight: 2px;
   --radius-soft: 4px;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* index.html stamps data-theme on <html> before the first paint. The dark set is
+   restated here rather than left to :root alone because world-system.ts reads the
+   flight's colours off a hidden data-theme="dark" probe — space stays dark whatever
+   the page theme is. These blocks are unlayered, so they win over @theme. */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: oklch(0.5739 0.2154 9.95);
+  --color-primary-dim: oklch(0.4698 0.174 8.96);
+
+  --color-canvas: oklch(0.16 0.006 62);
+  --color-surface: oklch(0.21 0.007 62);
+  --color-ink: oklch(0.94 0.008 62);
+  --color-muted: oklch(0.68 0.008 62);
+  --color-faint: oklch(0.6 0.008 62);
+  --color-rule: oklch(0.3 0.008 62);
+}
+
+/* the same panel under work light: warm paper rather than white, the accent pushed
+   darker so it still carries on a light ground */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-primary: oklch(0.5 0.215 9.95);
+  --color-primary-dim: oklch(0.62 0.16 9.95);
+
+  --color-canvas: oklch(0.97 0.005 62);
+  --color-surface: oklch(1 0 0);
+  --color-ink: oklch(0.2 0.012 62);
+  --color-muted: oklch(0.44 0.012 62);
+  --color-faint: oklch(0.55 0.012 62);
+  --color-rule: oklch(0.86 0.008 62);
 }
 
 @layer base {
@@ -41,6 +75,10 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     touch-action: manipulation;
+    /* the fallback for browsers without view transitions: the theme still crossfades */
+    transition:
+      background-color 400ms var(--ease-out-expo),
+      color 400ms var(--ease-out-expo);
   }
 
   h1,
@@ -53,6 +91,11 @@
     text-wrap: pretty;
   }
 
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-canvas);
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
@@ -60,7 +103,7 @@
 }
 
 @layer components {
-  /* Martian Mono metadata: dates, indices, labels. Instrument readout, not fine print. */
+  /* JetBrains Mono metadata: dates, indices, labels. Instrument readout, not fine print. */
   .label {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
@@ -76,6 +119,48 @@
     letter-spacing: -0.022em;
     line-height: 0.95;
   }
+
+  /* DESIGN.md section 4: a hairline underline that turns accent on hover. The accent
+     line is a second rule wiped in from the left rather than a colour change, so the
+     hover reads as movement. */
+  .link {
+    position: relative;
+    transition: color 200ms var(--ease-out-expo);
+  }
+
+  .link::before,
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+
+  .link::before {
+    background-color: var(--color-rule);
+  }
+
+  .link::after {
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 450ms var(--ease-out-expo);
+  }
+
+  @media (hover: hover) {
+    .link:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* the theme swap crossfades the whole page instead of snapping */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 400ms;
+  animation-timing-function: var(--ease-out-expo);
 }
 
 @media (prefers-reduced-motion: reduce) {

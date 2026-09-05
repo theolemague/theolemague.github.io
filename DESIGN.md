@@ -117,13 +117,21 @@ card** pinned to that pin, on whichever side of it has room, with a close button
 closes it too, and the other pins drop to 35% opacity. Below `md` the card stops being an
 overlay and stacks under the map, since there is no hover on touch.
 
-**Motion.** One curve for everything: `cubic-bezier(0.16, 1, 0.3, 1)`, exposed as
-`--ease-out-expo`. Three durations — 200ms for a colour, 500ms for a movement, 700–900ms
-for something arriving. Sections do not fade in as a block: the section is the conductor
-and its contents rise in sequence (`staggerChildren`), while the hairline in a section
-header draws itself from the index outwards. Routes crossfade on the way in and out.
-Hover moves things rather than only recolouring them — the arrow travels, the underline
-wipes across. Everything above is off under `prefers-reduced-motion`.
+**Motion.** One vocabulary, in `src/utils/motion.ts`. One curve for everything:
+`cubic-bezier(0.16, 1, 0.3, 1)`, exposed as `--ease-out-expo`. Three durations — 200ms
+for a colour, 500ms for a movement, 1000–1200ms for something arriving. Sections do not
+fade in as a block: the section is the conductor and its contents rise in sequence
+(`staggerChildren` 0.12), while the hairline in a section header draws itself from the
+index outwards.
+
+The scroll threshold is deliberately high — `margin: '0px 0px -30% 0px'`, so a section
+holds until its top has climbed past 70% of the screen. It arrives once you have reached
+it, not when its first pixel appears. The hero is the exception: it plays on load and
+takes a full `dvh`, so nothing of the next section shows until you scroll.
+
+Routes crossfade on the way in and out. Hover moves things rather than only recolouring
+them — the arrow travels, the underline wipes across. Everything above is off under
+`prefers-reduced-motion`.
 
 ## 5. Layout
 

@@ -5,21 +5,12 @@ import { Link } from 'react-router-dom';
 import CONTENT from '@/data/content';
 import LangSwitcher from '@/components/ui/lang-switcher';
 import ThemeSwitcher from '@/components/ui/theme-switcher';
+import { container, rise } from '@/utils/motion';
 
 const VERSIONS = [
   { id: 'serious', to: '/serious', index: '01' },
   { id: 'fun', to: '/fun', index: '02' },
 ];
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-
-const rise = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } },
-};
 
 const Gate = () => {
   const { t, i18n } = useTranslation();

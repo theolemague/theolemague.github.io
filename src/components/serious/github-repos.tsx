@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import CONTENT from '@/data/content';
+import { container, rise } from '@/utils/motion';
 
 interface Repo {
   id: number;
@@ -12,16 +13,6 @@ interface Repo {
   language: string | null;
   fork: boolean;
 }
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.06 } },
-};
-
-const rise = {
-  hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
-};
 
 const GithubRepos = () => {
   const { t } = useTranslation();

@@ -1,43 +1,51 @@
 {
-  "name": "site",
-  "version": "1.0.1",
+  "name": "theolemague-site",
+  "version": "2.0.0",
   "type": "module",
   "private": true,
-  "homepage": "http://theolemague.github.io",
+  "homepage": "https://theolemague.github.io",
   "dependencies": {
-    "framer-motion": "^12.4.10",
-    "gh-pages": "^3.2.2",
-    "octokit": "^3.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-i18next": "^14.1.1",
-    "react-icons": "^4.2.0",
-    "react-markdown": "^6.0.3",
-    "react-router-dom": "^6.23.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "preview": "vite preview",
-    "build": "tsc && vite build",
-    "deploy": "gh-pages -d build"
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "framer-motion": "^13.2.0",
+    "i18next": "^26.4.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-i18next": "^17.0.13",
+    "react-router-dom": "^7.18.3",
+    "three": "^0.185.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react-swc": "^3.6.0",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11"
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/d3-geo": "^3.1.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.4",
+    "@types/three": "^0.185.4",
+    "@types/topojson-client": "^3.1.5",
+    "@vitejs/plugin-react-swc": "^4.3.3",
+    "d3-geo": "^3.1.1",
+    "prettier": "^3.9.6",
+    "tailwindcss": "^4.3.3",
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "world-atlas": "^2.0.2"
+  },
+  "scripts": {
+    "dev": "bun run build:map && vite",
+    "build:map": "bun run scripts/build-map.mjs",
+    "build": "bun run build:map && tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write ."
   },
   "prettier": {
-    "arrowParens": "always",
     "printWidth": 180,
-    "semi": true,
-    "doubleQuote": true,
-    "tabWidth": 2,
+    "singleQuote": true,
     "trailingComma": "all",
-    "jsxBracketSameLine": true
+    "arrowParens": "avoid",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
+    "semi": true,
+    "tabWidth": 2
   }
 }

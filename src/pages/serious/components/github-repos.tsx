@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import RESUME from '@/data/resume.json';
+import CONTENT from '@/data/content';
 
 interface Repo {
   id: number;
@@ -17,12 +17,17 @@ const GithubRepos = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
 
+  // the username comes from the GitHub line under ## Contact, so the repository
+  // list follows the markdown like everything else
+  const githubLink = CONTENT.en.sections.contact.links.find(link => link.url.includes('github.com/'));
+  const githubUser = githubLink ? githubLink.url.split('github.com/')[1] : '';
+
   useEffect(() => {
     // one request, not one per repo — the previous version fetched each README
     // and language list separately and exhausted the unauthenticated rate limit
     const loadRepos = async () => {
       try {
-        const response = await fetch(`https://api.github.com/users/${RESUME.profile.githubUser}/repos?sort=updated&per_page=100`);
+        const response = await fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated&per_page=100`);
         if (!response.ok) throw new Error('github request failed');
         const data = await response.json();
         if (!Array.isArray(data)) throw new Error('unexpected github response');
@@ -33,7 +38,7 @@ const GithubRepos = () => {
       }
     };
     loadRepos();
-  }, []);
+  }, [githubUser]);
 
   if (status === 'loading') return <p className="label text-faint">{t('projects.loading')}</p>;
 

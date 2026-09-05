@@ -32,9 +32,9 @@
     "world-atlas": "^2.0.2"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "bun run build:map && vite",
     "build:map": "bun run scripts/build-map.mjs",
-    "build": "tsc && vite build",
+    "build": "bun run build:map && tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write ."
   },

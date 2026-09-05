@@ -2,12 +2,14 @@
 // browser ships a plain SVG path list instead of d3-geo and a TopoJSON file.
 // Run with: bun run build:map
 
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import world from 'world-atlas/countries-110m.json' with { type: 'json' };
 
-import resume from '../src/data/resume.json' with { type: 'json' };
+import { parseContent } from '../src/data/parse-content.ts';
+
+const { places: PLACES } = parseContent(readFileSync('content/en.md', 'utf-8'));
 
 const COUNTRIES = [
   'France', 'Spain', 'Portugal', 'Italy', 'Switzerland', 'Austria', 'Germany', 'Belgium', 'Netherlands', 'Luxembourg',
@@ -41,7 +43,7 @@ const toPath = geoPath(projection);
 
 // Drawn whatever the frame does to them: the countries the parcours happens in, plus
 // Norway — Sweden reads as an island without it.
-const ALWAYS_DRAWN = [...resume.places.map(place => place.country.en), 'Norway'];
+const ALWAYS_DRAWN = [...PLACES.map(place => place.country), 'Norway'];
 
 // A country is drawn whole or not at all — a shape sliced by the frame edge reads as a
 // mistake. Territories that fall entirely outside the frame (French Guiana, Svalbard) are
@@ -63,7 +65,7 @@ const countries = european
   })
   .map(item => ({ name: item.name, d: toPath(item.geometry) }));
 
-const places = resume.places.map(place => {
+const places = PLACES.map(place => {
   const [x, y] = projection([place.lon, place.lat]);
   return { id: place.id, x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10 };
 });

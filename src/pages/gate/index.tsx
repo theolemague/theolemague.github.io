@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import LangSwitcher from '@/components/lang-switcher';
+import LangSwitcher from '@/components/common/lang-switcher';
 
 const enter = {
   hidden: { opacity: 0, y: 12, filter: 'blur(4px)' },

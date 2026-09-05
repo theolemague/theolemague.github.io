@@ -17,9 +17,6 @@
   },
   "hero": {
     "greeting": "Hello world!",
-    "name": "Théo Le Magueresse",
-    "role": "Tech Lead & CTO as a Service",
-    "intro": "Telecommunications engineer from INSA Lyon, with a year at Stockholm University. I started in electronics and embedded systems before moving to web and mobile. Today at Selego, between Amsterdam and Paris, I take startups from MVP all the way to scale: I build, I recruit and I train the teams.",
     "cta": "See my background"
   },
   "sections": {
@@ -41,14 +38,7 @@
     "github": "On GitHub",
     "github-hint": "Public repositories, most recently updated.",
     "loading": "Loading repositories…",
-    "error": "Could not load the repositories right now.",
-    "view": "View"
-  },
-  "contact": {
-    "text": "Got a project in mind, a question, or just want to talk? Drop me a line.",
-    "email": "Email",
-    "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "error": "Could not load the repositories right now."
   },
   "ui": {
     "present": "present",

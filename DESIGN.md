@@ -126,7 +126,7 @@ decorative shadows anywhere in this project.
 - **Don't** add a second accent colour, including in the 3D version. Engine glow is amber.
 - **Don't** use cyan/violet for the space scene — it is the exact cliché this direction exists to avoid.
 - **Don't** hand-edit `src/data/europe-map.json` — it is generated. Change the frame or the
-  places in `resume.json` and run `bun run build:map`.
+  Places table in `content/en.md` and run `bun run build:map`.
 - **Don't** centre body text. The grid is left-aligned throughout.
 
 ## 8. Responsive

@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { CSSProperties, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import CONTENT from '@/data/content';
 import MAP from '@/data/europe-map.json';
-import RESUME from '@/data/resume.json';
 
 export interface ParcoursEntry {
   type: 'education' | 'experience';
@@ -36,7 +36,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
   const positions = Object.fromEntries(MAP.places.map(place => [place.id, place]));
   const route = journey.map(placeId => `${positions[placeId].x},${positions[placeId].y}`).join(' ');
 
-  const selectedDetails = RESUME.places.find(place => place.id === selectedPlace);
+  const selectedDetails = CONTENT[lang].places.find(place => place.id === selectedPlace);
   const selectedEntries = entries.filter(entry => selectedPlace && entry.places.includes(selectedPlace));
   const anchor = selectedPlace ? positions[selectedPlace] : null;
 
@@ -59,7 +59,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
           <polyline points={route} fill="none" stroke="var(--color-amber-dim)" strokeWidth={1.2} strokeDasharray="4 5" opacity={0.55} />
 
           {MAP.places.map(place => {
-            const details = RESUME.places.find(item => item.id === place.id)!;
+            const details = CONTENT[lang].places.find(item => item.id === place.id)!;
             const order = journey.indexOf(place.id) + 1;
             const isSelected = selectedPlace === place.id;
             const isLit = isSelected || hoveredPlace === place.id;
@@ -147,7 +147,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
             </button>
 
             <p className="label pr-8 text-amber">
-              {String(journey.indexOf(selectedDetails.id) + 1).padStart(2, '0')} · {selectedDetails.name} — {selectedDetails.country[lang]}
+              {String(journey.indexOf(selectedDetails.id) + 1).padStart(2, '0')} · {selectedDetails.name} — {selectedDetails.country}
             </p>
             <div className="mt-4 flex flex-col gap-4">
               {selectedEntries.map(entry => (

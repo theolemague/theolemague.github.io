@@ -33,7 +33,7 @@ const Home = () => {
 
   const parcours = buildParcours(lang, t('ui.present'));
   const journey = buildJourney(parcours);
-  const waypoints = buildSystem(parcours, journey, { intro: t('nav.intro'), projects: t('sections.projects'), contact: t('sections.contact') });
+  const waypoints = buildSystem(parcours, journey, lang, { intro: t('nav.intro'), projects: t('sections.projects'), contact: t('sections.contact') });
   const unlocked = waypoints.slice(0, reached + 1);
   const objective = waypoints[reached] ?? null;
   const docked = waypoints.find(waypoint => waypoint.id === dockedId) ?? null;
@@ -50,7 +50,7 @@ const Home = () => {
   if (!flightSupported) return <Navigate to="/serious" replace />;
 
   return (
-    <div className="fixed inset-0 touch-none">
+    <div className="px-6 md:px-12 fixed inset-0 touch-none">
       {/* flat keeps tone mapping off, so the amber lands on screen as the exact
           value DESIGN.md specifies rather than a filmic approximation of it */}
       <Canvas flat dpr={[1, window.innerWidth < 768 ? 1.25 : 2]} camera={{ fov: 62, near: 0.1, far: 700 }}>

@@ -1,4 +1,4 @@
-import RESUME from '@/data/resume.json';
+import CONTENT from '@/data/content';
 
 export interface ParcoursEntry {
   type: 'education' | 'experience';
@@ -12,45 +12,37 @@ export interface ParcoursEntry {
   period: string;
 }
 
-// education and work normalised into one shape, newest first — the two tracks
-// read as a single path rather than two lists
+// ## Education and ## Experience normalised into one shape, newest first — the two
+// tracks read as a single path rather than two lists
 export const buildParcours = (lang: 'fr' | 'en', presentLabel: string): ParcoursEntry[] => {
-  const formatRange = (start: string, end: string) => `${new Date(start).getFullYear()} — ${end === '/' ? presentLabel : new Date(end).getFullYear()}`;
+  const { sections, places } = CONTENT[lang];
 
-  const educations = RESUME.educations.map(item => ({
-    type: 'education' as const,
-    title: item.name[lang],
-    subtitle: item.university[lang],
-    city: item.city[lang],
-    start: item.start,
-    end: item.end,
-    details: [item.description[lang]],
-    places: item.places,
-    period: formatRange(item.start, item.end),
-  }));
+  const fromSection = (key: string, type: ParcoursEntry['type']) =>
+    sections[key].entries.map(entry => ({
+      type,
+      title: entry.title,
+      subtitle: entry.subtitle,
+      city: entry.places.map(id => places.find(place => place.id === id)!.name).join(' & '),
+      start: entry.start,
+      end: entry.end,
+      details: entry.details,
+      places: entry.places,
+      period: `${entry.start.slice(0, 4)} — ${entry.end ? entry.end.slice(0, 4) : presentLabel}`,
+    }));
 
-  const works = RESUME.works.map(item => ({
-    type: 'experience' as const,
-    title: item.name[lang],
-    subtitle: item.company[lang],
-    city: item.city[lang],
-    start: item.start,
-    end: item.end,
-    details: item.tasks.map(task => task[lang]),
-    places: item.places,
-    period: formatRange(item.start, item.end),
-  }));
-
-  return [...educations, ...works].sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime());
+  return [...fromSection('education', 'education'), ...fromSection('experience', 'experience')].sort((a, b) => b.start.localeCompare(a.start));
 };
 
 // place ids ordered by the date each was first reached — the map and the flight
 // both number the journey from this, so the two versions can never disagree
-export const buildJourney = (parcours: ParcoursEntry[]): string[] =>
-  RESUME.places
-    .map(place => ({
-      id: place.id,
-      arrival: Math.min(...parcours.filter(entry => entry.places.includes(place.id)).map(entry => new Date(entry.start).getTime())),
-    }))
-    .sort((a, b) => a.arrival - b.arrival)
-    .map(place => place.id);
+export const buildJourney = (parcours: ParcoursEntry[]): string[] => {
+  const journey: string[] = [];
+
+  for (const entry of [...parcours].reverse()) {
+    for (const place of entry.places) {
+      if (!journey.includes(place)) journey.push(place);
+    }
+  }
+
+  return journey;
+};

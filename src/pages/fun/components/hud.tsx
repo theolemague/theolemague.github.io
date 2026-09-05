@@ -3,9 +3,9 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import LangSwitcher from '@/components/lang-switcher';
+import LangSwitcher from '@/components/common/lang-switcher';
+import CONTENT from '@/data/content';
 import { ParcoursEntry } from '@/data/parcours';
-import RESUME from '@/data/resume.json';
 import { Telemetry, Waypoint } from '../system';
 
 interface ReadoutsProps {
@@ -75,13 +75,9 @@ interface DossierProps {
 const Dossier = ({ docked, parcours, lang }: DossierProps) => {
   const { t } = useTranslation();
 
-  const place = RESUME.places.find(item => item.id === docked.id);
+  const content = CONTENT[lang];
+  const place = content.places.find(item => item.id === docked.id);
   const entries = parcours.filter(entry => entry.places.includes(docked.id));
-  const contacts = [
-    { label: t('contact.email'), value: RESUME.profile.email, href: `mailto:${RESUME.profile.email}` },
-    { label: t('contact.linkedin'), value: RESUME.profile.linkedin, href: RESUME.profile.linkedin },
-    { label: t('contact.github'), value: RESUME.profile.githubUser, href: RESUME.profile.github },
-  ].filter(contact => contact.value);
 
   return (
     <motion.aside
@@ -94,17 +90,17 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
       className="pointer-events-auto fixed right-0 bottom-0 left-0 z-40 max-h-[45dvh] overflow-y-auto border-t border-rule bg-canvas/92 p-5 backdrop-blur-sm md:top-28 md:bottom-8 md:left-auto md:max-h-none md:w-[23rem] md:border-t-0 md:border-l md:p-6">
       <p className="label text-amber">
         {String(docked.order).padStart(2, '0')} · {docked.label}
-        {place && ` — ${place.country[lang]}`}
+        {place && ` — ${place.country}`}
       </p>
 
       {docked.kind === 'intro' && (
         <div className="mt-5">
           <p className="label text-faint">{t('hero.greeting')}</p>
           <p className="mt-3 text-xl text-ink" style={{ fontStretch: '105%', letterSpacing: '-0.012em' }}>
-            {t('hero.name')}
+            {content.name}
           </p>
-          <p className="mt-1 text-[0.9375rem] text-muted">{t('hero.role')}</p>
-          <p className="mt-4 text-[0.875rem] leading-relaxed text-muted">{t('hero.intro')}</p>
+          <p className="mt-1 text-[0.9375rem] text-muted">{content.role}</p>
+          <p className="mt-4 text-[0.875rem] leading-relaxed text-muted">{content.intro}</p>
         </div>
       )}
 
@@ -132,21 +128,22 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
 
       {docked.kind === 'projects' && (
         <div className="mt-5 flex flex-col gap-5">
-          {RESUME.projects.map(project => (
-            <div key={project.name}>
-              <p className="label text-faint">{project.context[lang]}</p>
-              <p className="mt-1 text-[0.9375rem] text-ink">{project.name}</p>
-              <p className="mt-1 text-[0.8125rem] text-muted">{project.description[lang]}</p>
-              {project.link && (
+          {content.sections.projects.entries.map(project => (
+            <div key={project.title}>
+              <p className="label text-faint">{project.subtitle}</p>
+              <p className="mt-1 text-[0.9375rem] text-ink">{project.title}</p>
+              <p className="mt-1 text-[0.8125rem] text-muted">{project.description}</p>
+              {project.links.map(link => (
                 <a
-                  href={project.link}
+                  key={link.url}
+                  href={link.url}
                   target="_blank"
                   rel="noreferrer"
                   className="label mt-2 inline-flex items-center gap-2 text-ink transition-colors duration-300 [@media(hover:hover)]:hover:text-amber">
-                  {t('projects.view')}
+                  {link.text}
                   <span aria-hidden="true">↗</span>
                 </a>
-              )}
+              ))}
             </div>
           ))}
         </div>
@@ -154,17 +151,17 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
 
       {docked.kind === 'contact' && (
         <div className="mt-5">
-          <p className="text-[0.9375rem] text-muted">{t('contact.text')}</p>
+          <p className="text-[0.9375rem] text-muted">{content.sections.contact.text}</p>
           <ul className="mt-4">
-            {contacts.map(contact => (
-              <li key={contact.label}>
+            {content.sections.contact.links.map(contact => (
+              <li key={contact.url}>
                 <a
-                  href={contact.href}
-                  target={contact.href.startsWith('mailto:') ? undefined : '_blank'}
+                  href={contact.url}
+                  target={contact.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel="noreferrer"
                   className="group flex items-center justify-between gap-4 border-t border-rule py-3 transition-colors duration-300">
                   <span className="label text-faint">{contact.label}</span>
-                  <span className="text-[0.875rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber">{contact.value}</span>
+                  <span className="text-[0.875rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber">{contact.text}</span>
                 </a>
               </li>
             ))}

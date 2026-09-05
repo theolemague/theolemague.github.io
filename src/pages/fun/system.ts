@@ -1,5 +1,5 @@
+import CONTENT from '@/data/content';
 import { ParcoursEntry } from '@/data/parcours';
-import RESUME from '@/data/resume.json';
 
 export interface Waypoint {
   id: string;
@@ -46,9 +46,9 @@ const positionAt = (index: number): [number, number, number] => {
 
 export const FLIGHT_BOUNDS = 190;
 
-export const buildSystem = (parcours: ParcoursEntry[], journey: string[], labels: { intro: string; projects: string; contact: string }): Waypoint[] => {
+export const buildSystem = (parcours: ParcoursEntry[], journey: string[], lang: 'fr' | 'en', labels: { intro: string; projects: string; contact: string }): Waypoint[] => {
   const places = journey.map((placeId, index) => {
-    const details = RESUME.places.find(place => place.id === placeId)!;
+    const details = CONTENT[lang].places.find(place => place.id === placeId)!;
     // a place you stayed twice is a bigger world than one you passed through once
     const radius = 2.6 + parcours.filter(entry => entry.places.includes(placeId)).length * 0.6;
 

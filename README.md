@@ -7,7 +7,7 @@ It is not one portfolio, it is two. The site opens on a single question:
 > **Serious version** or **Not serious version** ?
 
 Both answers lead to the same content — the same career, the same projects, the same
-resume data — rendered through two completely different lenses. One is a clean,
+markdown files — rendered through two completely different lenses. One is a clean,
 typographic, recruiter-friendly page. The other is a 3D space scene where a ship flies
 you from one section to the next.
 
@@ -66,13 +66,18 @@ serious layout with a note explaining why.
 .github/workflows/deploy.yml   # build + publish to GitHub Pages on push to master
 scripts/build-map.mjs          # generates the Europe map SVG paths (bun run build:map)
 
+content/
+  en.md                        # single source of truth for the content — English
+  fr.md                        # the same, French
+
 src/
   main.tsx                     # React entry
   app.tsx                      # router — mounts the gate and both versions
   index.css                    # Tailwind import + design tokens
 
   data/
-    resume.json                # single source of truth: profile, education, work, projects, places
+    parse-content.ts           # turns content/*.md into the shapes both versions read
+    content.ts                 # the two parsed files
     europe-map.json            # GENERATED — SVG paths + projected pin coordinates
 
   lang/
@@ -109,10 +114,36 @@ Prettier — never format by hand.
 
 ### Content lives in one place
 
-`src/data/resume.json` holds every fact about my background, with each field carrying
-both `fr` and `en`. Both versions of the site read from it. Adding a job means editing
-one JSON file, and it appears in both skins, in both languages. `src/lang/*.json` holds
-only interface strings (button labels, section titles).
+`content/en.md` and `content/fr.md` hold every fact about my background, as markdown.
+Both versions of the site read from them, so adding a job means editing one file and it
+appears in both skins. `src/lang/*.json` holds only interface strings (button labels,
+section titles).
+
+The markdown carries its own structure, so nothing needs a schema:
+
+| You write                     | It means                                   |
+| ----------------------------- | ------------------------------------------ |
+| `#`                           | my name                                    |
+| `##`                          | a section — the English word is the key    |
+| `###`                         | an entry: a job, a school, a project       |
+| `_italic line_` under a title | who · when · where — order does not matter |
+| `- bullet`                    | a detail line                              |
+| `- **Label** [text](url)`     | a labelled link                            |
+| `` `code` ``                  | a tag: stack, skill                        |
+| a table                       | the places, with their coordinates         |
+
+In the italic line, anything containing `→` is the dates, anything matching a city in
+the Places table is a place, and the rest becomes the subtitle. An end date that is not
+a date (`now`, `aujourd'hui`) means still going. Sections the code does not know about
+are simply ignored, so writing one costs nothing.
+
+`src/data/parse-content.ts` is the whole reader — about a hundred lines, no dependency.
+Vite imports the markdown with `?raw`, so editing a file hot-reloads the site.
+
+The one thing the markdown cannot carry on its own is the map. `src/data/europe-map.json`
+projects the Places table into pin coordinates, and the two must agree or the map throws.
+So `dev` and `build` both regenerate it first — add a city to the table and it appears,
+locally and on the deploy, without running anything.
 
 ---
 
@@ -133,8 +164,8 @@ bun run dev        # http://localhost:3000
 ## Other commands
 
 ```zsh
-bun run build      # type-check, then build to dist/
-bun run build:map  # regenerate the Europe map after changing places in resume.json
+bun run build      # regenerate the map, type-check, then build to dist/
+bun run build:map  # regenerate the Europe map on its own
 bun run preview    # serve the production build locally
 bun run format     # Prettier over the whole project
 ```

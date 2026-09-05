@@ -14,13 +14,9 @@
 
 # Théo Le Magueresse
 
-_Tech Lead & CTO as a Service_
+_Software Engineer_
 
-Ingénieur en télécommunications de l'INSA de Lyon, passé par l'Université de
-Stockholm. J'ai commencé par l'électronique et l'embarqué avant de basculer vers
-le web et le mobile. Aujourd'hui chez Selego, entre Amsterdam et Paris,
-j'accompagne des startups du MVP jusqu'au passage à l'échelle : je développe, je
-recrute et je forme les équipes.
+J'ai commencé par découvrir l'ingénieurie avec l'électronique et l'informatique embarqué. Ayant une préference pour l'informatique j'ai rapidement basculer vers le web et le mobile durant mes années d'études et mes premières expèriences en freelance. Aujourd'hui je suis Full Stack développeur, j'accompagne des startups à la création d'un produit en partant de zéro jusqu'a son potentiel maximum.
 
 ## Experience
 

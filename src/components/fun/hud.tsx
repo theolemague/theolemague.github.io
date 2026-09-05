@@ -1,12 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
-import LangSwitcher from '@/components/common/lang-switcher';
 import CONTENT from '@/data/content';
 import { ParcoursEntry } from '@/data/parcours';
-import { Telemetry, Waypoint } from '../system';
+import { Telemetry, Waypoint } from '../../utils/world-system';
 
 interface ReadoutsProps {
   telemetry: RefObject<Telemetry>;
@@ -42,7 +40,7 @@ const Readouts = ({ telemetry, unlocked }: ReadoutsProps) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <p ref={warningRef} hidden className="label text-amber">
+      <p ref={warningRef} hidden className="label text-primary">
         {t('fun.out-of-range')}
       </p>
       <div className="flex items-center gap-6 border-t border-rule pt-3">
@@ -55,7 +53,7 @@ const Readouts = ({ telemetry, unlocked }: ReadoutsProps) => {
         <span className="label flex items-baseline gap-2 text-faint">
           {t('fun.target')}
           {/* the needle turns with the bearing, so the nearest world is never lost */}
-          <span ref={needleRef} aria-hidden="true" className="inline-block text-amber">
+          <span ref={needleRef} aria-hidden="true" className="inline-block text-primary">
             ↑
           </span>
           <span ref={targetRef} className="text-ink" />
@@ -87,8 +85,8 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 24 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="pointer-events-auto fixed right-0 bottom-0 left-0 z-40 max-h-[45dvh] overflow-y-auto border-t border-rule bg-canvas/92 p-5 backdrop-blur-sm md:top-28 md:bottom-8 md:left-auto md:max-h-none md:w-[23rem] md:border-t-0 md:border-l md:p-6">
-      <p className="label text-amber">
+      className="pointer-events-auto fixed right-0 bottom-16 left-0 z-40 max-h-[45dvh] overflow-y-auto border-t border-rule bg-canvas/92 p-5 backdrop-blur-sm md:top-28 md:bottom-8 md:left-auto md:max-h-none md:w-[23rem] md:border-t-0 md:border-l md:p-6">
+      <p className="label text-primary">
         {String(docked.order).padStart(2, '0')} · {docked.label}
         {place && ` — ${place.country}`}
       </p>
@@ -116,7 +114,7 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
               <ul className="mt-2 flex flex-col gap-1.5">
                 {entry.details.map(detail => (
                   <li key={detail} className="flex gap-2.5 text-[0.8125rem] text-muted">
-                    <span aria-hidden="true" className="mt-[0.45rem] h-1 w-1 shrink-0 bg-amber" />
+                    <span aria-hidden="true" className="mt-[0.45rem] h-1 w-1 shrink-0 bg-primary" />
                     {detail}
                   </li>
                 ))}
@@ -139,7 +137,7 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="label mt-2 inline-flex items-center gap-2 text-ink transition-colors duration-300 [@media(hover:hover)]:hover:text-amber">
+                  className="label mt-2 inline-flex items-center gap-2 text-ink transition-colors duration-300 [@media(hover:hover)]:hover:text-primary">
                   {link.text}
                   <span aria-hidden="true">↗</span>
                 </a>
@@ -161,7 +159,7 @@ const Dossier = ({ docked, parcours, lang }: DossierProps) => {
                   rel="noreferrer"
                   className="group flex items-center justify-between gap-4 border-t border-rule py-3 transition-colors duration-300">
                   <span className="label text-faint">{contact.label}</span>
-                  <span className="text-[0.875rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber">{contact.text}</span>
+                  <span className="text-[0.875rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-primary">{contact.text}</span>
                 </a>
               </li>
             ))}
@@ -200,22 +198,7 @@ const Hud = ({ telemetry, unlocked, justUnlocked, docked, parcours, lang, hasFlo
   return (
     <>
       {/* the overlay itself never takes the pointer, so a drag anywhere still flies */}
-      <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-between p-5 md:p-8">
-        <header className="flex items-center justify-between gap-4">
-          <Link to="/" className="label pointer-events-auto text-faint transition-colors duration-200 [@media(hover:hover)]:hover:text-ink">
-            ← {t('ui.back-to-gate')}
-          </Link>
-          <div className="pointer-events-auto flex items-center gap-6">
-            <Link
-              to="/serious"
-              onClick={() => localStorage.setItem('version', 'serious')}
-              className="label text-right text-faint transition-colors duration-200 [@media(hover:hover)]:hover:text-amber">
-              {t('ui.switch-to-serious')} →
-            </Link>
-            <LangSwitcher />
-          </div>
-        </header>
-
+      <div className="pointer-events-none fixed inset-0 z-30 flex flex-col justify-end px-6 pt-20 pb-24 md:px-12 md:pb-8">
         <footer className="flex items-end justify-between gap-6">
           <Readouts telemetry={telemetry} unlocked={unlocked} />
           <AnimatePresence>
@@ -237,7 +220,7 @@ const Hud = ({ telemetry, unlocked, justUnlocked, docked, parcours, lang, hasFlo
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="pointer-events-none fixed inset-x-0 top-28 z-40 flex justify-center px-6">
-            <p className="label border-b border-amber pb-2 text-center text-amber">
+            <p className="label border-b border-primary pb-2 text-center text-primary">
               {t('fun.unlocked')} · {String(announcement.order).padStart(2, '0')} {announcement.label}
             </p>
           </motion.div>

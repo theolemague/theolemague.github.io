@@ -1,13 +1,7 @@
 {
   "gate": {
-    "intro": "Before you come in",
-    "question": "Do you want the serious version, or the not serious one?",
     "serious": "Serious version",
-    "serious-hint": "The clean portfolio. My background, my projects, how to reach me. The one you send with a job application.",
-    "fun": "Not serious version",
-    "fun-hint": "The same content, but in space. A ship flies you from one section to the next.",
-    "enter": "Enter",
-    "footer": "You can change your mind at any time."
+    "fun": "Not serious version"
   },
   "nav": {
     "intro": "Intro",
@@ -45,7 +39,9 @@
     "switch-to-serious": "Serious version",
     "switch-to-fun": "Not serious version",
     "back-to-gate": "Back to the choice",
-    "language": "Language"
+    "language": "Language",
+    "menu": "Menu",
+    "close": "Close"
   },
   "fun": {
     "hint": "Hold or drag to fly · WASD or arrows · worlds open in order, follow the target",

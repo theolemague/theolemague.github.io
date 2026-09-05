@@ -18,16 +18,16 @@ Density is medium — generous vertical rhythm, tight horizontal measure. Nothin
 All values OKLCH. Neutrals are tinted toward the amber hue (chroma 0.005–0.008) so the
 greys feel warm rather than dead.
 
-| Token               | Value                  | Role                                           |
-| ------------------- | ---------------------- | ---------------------------------------------- |
-| `--color-canvas`    | `oklch(0.16 0.006 62)` | Page background. The panel.                    |
-| `--color-surface`   | `oklch(0.21 0.007 62)` | Raised region — hovered gate panel only        |
-| `--color-ink`       | `oklch(0.94 0.008 62)` | Primary text. Never `#fff` — too harsh on dark |
-| `--color-muted`     | `oklch(0.68 0.008 62)` | Body secondary, descriptions                   |
-| `--color-faint`     | `oklch(0.60 0.008 62)` | Labels, metadata, inactive nav                 |
-| `--color-rule`      | `oklch(0.30 0.008 62)` | Hairline rules and dividers                    |
-| `--color-amber`     | `oklch(0.78 0.16 62)`  | **The** accent — indices, active state, focus  |
-| `--color-amber-dim` | `oklch(0.58 0.11 62)`  | Accent at rest, engine glow at distance        |
+| Token                 | Value                  | Role                                           |
+| --------------------- | ---------------------- | ---------------------------------------------- |
+| `--color-canvas`      | `oklch(0.16 0.006 62)` | Page background. The panel.                    |
+| `--color-surface`     | `oklch(0.21 0.007 62)` | Raised region — hovered gate panel only        |
+| `--color-ink`         | `oklch(0.94 0.008 62)` | Primary text. Never `#fff` — too harsh on dark |
+| `--color-muted`       | `oklch(0.68 0.008 62)` | Body secondary, descriptions                   |
+| `--color-faint`       | `oklch(0.60 0.008 62)` | Labels, metadata, inactive nav                 |
+| `--color-rule`        | `oklch(0.30 0.008 62)` | Hairline rules and dividers                    |
+| `--color-primary`     | `oklch(0.78 0.16 62)`  | **The** accent — indices, active state, focus  |
+| `--color-primary-dim` | `oklch(0.58 0.11 62)`  | Accent at rest, engine glow at distance        |
 
 **60-30-10.** 60% canvas, 30% ink/muted/rule, 10% amber. If amber is covering more than
 a tenth of the screen, it has stopped meaning anything.
@@ -97,7 +97,7 @@ without which Sweden reads as an island.
 
 Pins are numbered discs ordered by arrival, so the map reads chronologically without a
 legend. Hover and focus light the pin alone — it fills amber, the number inverts to canvas,
-a ring scales out — which says *click me* and nothing more. Clicking opens a **readout
+a ring scales out — which says _click me_ and nothing more. Clicking opens a **readout
 card** pinned to that pin, on whichever side of it has room, with a close button; Escape
 closes it too, and the other pins drop to 35% opacity. Below `md` the card stops being an
 overlay and stacks under the map, since there is no hover on touch.
@@ -151,6 +151,6 @@ radius  0 / 2px / 4px            fonts   Archivo (wdth), Martian Mono
 
 Example prompts, ready to paste:
 
-- "Build a section header: Martian Mono index `03` at 12px/0.08em uppercase in `--color-amber`, a 1px `--color-rule` hairline filling the remaining width, then an Archivo title at 36px weight 600 `font-stretch: 115%` letter-spacing -0.022em in `--color-ink`. No background, no border, 24px gap between index and title."
+- "Build a section header: Martian Mono index `03` at 12px/0.08em uppercase in `--color-primary`, a 1px `--color-rule` hairline filling the remaining width, then an Archivo title at 36px weight 600 `font-stretch: 115%` letter-spacing -0.022em in `--color-ink`. No background, no border, 24px gap between index and title."
 - "Build an experience row: left column 140px wide, Martian Mono 12px `tabular-nums` `--color-faint`, format `2023 — AUJOURD'HUI`. Right column: Archivo 20px weight 600 `--color-ink` for the role, 16px `--color-muted` for company · city, then task lines at 16px `--color-muted` each prefixed by a 4px amber square. 1px `--color-rule` top border, 32px vertical padding. No card."
-- "Build the nav: vertical list, Archivo 15px `--color-faint`, 12px gap. Active item is `--color-ink` with a 12px×1px `--color-amber` tick absolutely positioned to its left, moved between items with `transform: translateY()` and a 400ms `cubic-bezier(0.16,1,0.3,1)` transition."
+- "Build the nav: vertical list, Archivo 15px `--color-faint`, 12px gap. Active item is `--color-ink` with a 12px×1px `--color-primary` tick absolutely positioned to its left, moved between items with `transform: translateY()` and a 400ms `cubic-bezier(0.16,1,0.3,1)` transition."

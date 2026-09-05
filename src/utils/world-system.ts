@@ -11,16 +11,25 @@ export interface Waypoint {
   dockRadius: number;
 }
 
-// DESIGN.md tokens, resolved to sRGB hex — three cannot read the oklch custom properties
+// three cannot parse oklch, so each token is read off :root and handed to the
+// canvas, which gives it back as plain sRGB hex. index.css stays the only place
+// a colour is written down.
+const CONTEXT = document.createElement('canvas').getContext('2d')!;
+
+const readToken = (token: string) => {
+  CONTEXT.fillStyle = getComputedStyle(document.documentElement).getPropertyValue(token);
+  return CONTEXT.fillStyle as string;
+};
+
 export const COLORS = {
-  canvas: '#0f0d0b',
-  surface: '#1b1815',
-  ink: '#efeae6',
-  muted: '#9c9793',
-  faint: '#847f7b',
-  rule: '#312d2a',
-  amber: '#ff9d36',
-  amberDim: '#a86a2c',
+  canvas: readToken('--color-canvas'),
+  surface: readToken('--color-surface'),
+  ink: readToken('--color-ink'),
+  muted: readToken('--color-muted'),
+  faint: readToken('--color-faint'),
+  rule: readToken('--color-rule'),
+  primary: readToken('--color-primary'),
+  primaryDim: readToken('--color-primary-dim'),
 };
 
 // nothing marks the route any more, so the worlds are scattered rather than

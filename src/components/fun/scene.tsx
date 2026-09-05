@@ -1,7 +1,7 @@
 import { Grid } from '@react-three/drei';
 import { RefObject, useMemo } from 'react';
 
-import { COLORS, Telemetry, Waypoint } from '../system';
+import { COLORS, Telemetry, Waypoint } from '../../utils/world-system';
 import Planet from './planet';
 import Ship from './ship';
 

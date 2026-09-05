@@ -56,7 +56,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
           </g>
 
           {/* the path actually walked, in order of arrival */}
-          <polyline points={route} fill="none" stroke="var(--color-amber-dim)" strokeWidth={1.2} strokeDasharray="4 5" opacity={0.55} />
+          <polyline points={route} fill="none" stroke="var(--color-primary-dim)" strokeWidth={1.2} strokeDasharray="4 5" opacity={0.55} />
 
           {MAP.places.map(place => {
             const details = CONTENT[lang].places.find(item => item.id === place.id)!;
@@ -91,7 +91,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
                   cy={place.y}
                   r={isLit ? 18 : 12}
                   fill="none"
-                  stroke="var(--color-amber)"
+                  stroke="var(--color-primary)"
                   strokeWidth={1}
                   opacity={isLit ? 0.45 : 0}
                   className="transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
@@ -100,8 +100,8 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
                   cx={place.x}
                   cy={place.y}
                   r={isLit ? 12.5 : 11}
-                  fill={isLit ? 'var(--color-amber)' : 'var(--color-canvas)'}
-                  stroke="var(--color-amber)"
+                  fill={isLit ? 'var(--color-primary)' : 'var(--color-canvas)'}
+                  stroke="var(--color-primary)"
                   strokeWidth={1.2}
                   className="transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 />
@@ -110,7 +110,7 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
                   y={place.y}
                   textAnchor="middle"
                   dominantBaseline="central"
-                  fill={isLit ? 'var(--color-canvas)' : 'var(--color-amber)'}
+                  fill={isLit ? 'var(--color-canvas)' : 'var(--color-primary)'}
                   className="pointer-events-none transition-colors duration-300"
                   style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fontWeight: 500 }}>
                   {order}
@@ -142,11 +142,11 @@ const ParcoursMap = ({ entries, journey, lang }: ParcoursMapProps) => {
               type="button"
               onClick={() => setSelectedPlace(null)}
               aria-label={t('parcours.close')}
-              className="absolute top-3 right-3 p-1 text-lg leading-none text-faint transition-colors duration-200 [@media(hover:hover)]:hover:text-amber">
+              className="absolute top-3 right-3 p-1 text-lg leading-none text-faint transition-colors duration-200 [@media(hover:hover)]:hover:text-primary">
               <span aria-hidden="true">×</span>
             </button>
 
-            <p className="label pr-8 text-amber">
+            <p className="label pr-8 text-primary">
               {String(journey.indexOf(selectedDetails.id) + 1).padStart(2, '0')} · {selectedDetails.name} — {selectedDetails.country}
             </p>
             <div className="mt-4 flex flex-col gap-4">

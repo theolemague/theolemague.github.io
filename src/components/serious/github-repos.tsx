@@ -54,7 +54,7 @@ const GithubRepos = () => {
             rel="noreferrer"
             className="group grid gap-1 border-t border-rule py-5 transition-colors duration-300 md:grid-cols-[220px_1fr] md:gap-8 [@media(hover:hover)]:hover:bg-white/2">
             <span className="flex items-baseline gap-3">
-              <span className="text-[0.9375rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-amber">{repo.name}</span>
+              <span className="text-[0.9375rem] text-ink transition-colors duration-300 [@media(hover:hover)]:group-hover:text-primary">{repo.name}</span>
               <span aria-hidden="true" className="text-faint transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:group-hover:translate-x-1">
                 ↗
               </span>

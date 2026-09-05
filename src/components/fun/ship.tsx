@@ -2,7 +2,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { RefObject, useEffect, useRef } from 'react';
 import { Group, MathUtils, Mesh, MeshBasicMaterial, Plane, PointLight, Raycaster, Vector2, Vector3 } from 'three';
 
-import { COLORS, FLIGHT_BOUNDS, Telemetry, Waypoint } from '../system';
+import { COLORS, FLIGHT_BOUNDS, Telemetry, Waypoint } from '../../utils/world-system';
 
 const MAX_SPEED = 26;
 const ACCELERATION = 34;
@@ -230,7 +230,7 @@ const Ship = ({ dockable, objective, telemetry, dockedId, onDock, onFirstFlight 
         </mesh>
         <mesh rotation={[Math.PI / 2, 0, 0]} scale={1.02}>
           <coneGeometry args={[0.62, 2.4, 3]} />
-          <meshBasicMaterial color={COLORS.amberDim} wireframe transparent opacity={0.6} />
+          <meshBasicMaterial color={COLORS.primaryDim} wireframe transparent opacity={0.6} />
         </mesh>
 
         <mesh position={[0, -0.14, -0.5]}>
@@ -239,20 +239,20 @@ const Ship = ({ dockable, objective, telemetry, dockedId, onDock, onFirstFlight 
         </mesh>
         <mesh position={[0, -0.14, -0.5]} scale={1.02}>
           <boxGeometry args={[2.5, 0.1, 0.9]} />
-          <meshBasicMaterial color={COLORS.amberDim} wireframe transparent opacity={0.45} />
+          <meshBasicMaterial color={COLORS.primaryDim} wireframe transparent opacity={0.45} />
         </mesh>
 
         <mesh ref={glowRef} position={[0, 0, -1.28]}>
           <sphereGeometry args={[0.2, 12, 12]} />
-          <meshBasicMaterial color={COLORS.amber} transparent opacity={0.95} />
+          <meshBasicMaterial color={COLORS.primary} transparent opacity={0.95} />
         </mesh>
         <mesh ref={plumeRef} position={[0, 0, -2.4]} rotation={[-Math.PI / 2, 0, 0]}>
           <coneGeometry args={[0.26, 2.2, 8, 1, true]} />
-          <meshBasicMaterial color={COLORS.amber} transparent opacity={0} depthWrite={false} />
+          <meshBasicMaterial color={COLORS.primary} transparent opacity={0} depthWrite={false} />
         </mesh>
         {/* short reach on purpose: this is the engine lighting its own hull, not a
             lamp that floods whatever planet the ship is parked against */}
-        <pointLight ref={engineLightRef} position={[0, 0, -1.6]} color={COLORS.amber} distance={3.2} intensity={1.2} />
+        <pointLight ref={engineLightRef} position={[0, 0, -1.6]} color={COLORS.primary} distance={3.2} intensity={1.2} />
       </group>
     </group>
   );

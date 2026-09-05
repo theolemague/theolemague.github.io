@@ -19,7 +19,7 @@ const LangSwitcher = () => {
             type="button"
             onClick={() => handleChange(language)}
             aria-current={i18n.language === language}
-            className={`label px-1 py-2 transition-colors duration-200 [@media(hover:hover)]:hover:text-ink ${i18n.language === language ? 'text-amber' : ''}`}>
+            className={`label px-1 py-2 transition-colors duration-200 [@media(hover:hover)]:hover:text-ink ${i18n.language === language ? 'text-primary' : ''}`}>
             {language.toUpperCase()}
           </button>
         </span>

@@ -1,14 +1,19 @@
 @import 'tailwindcss';
 
-@theme {
+/* static: the 3D scene reads these off :root, so they must be emitted even
+   when no utility class happens to use one */
+@theme static {
+  /* --color-primary: oklch(0.78 0.16 62); */
+  /* --color-primary-dim: oklch(0.58 0.11 62); */
+  --color-primary: oklch(0.5739 0.2154 9.95);
+  --color-primary-dim: oklch(0.4698 0.174 8.96);
+
   --color-canvas: oklch(0.16 0.006 62);
   --color-surface: oklch(0.21 0.007 62);
   --color-ink: oklch(0.94 0.008 62);
   --color-muted: oklch(0.68 0.008 62);
   --color-faint: oklch(0.6 0.008 62);
   --color-rule: oklch(0.3 0.008 62);
-  --color-amber: oklch(0.78 0.16 62);
-  --color-amber-dim: oklch(0.58 0.11 62);
 
   --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Martian Mono', ui-monospace, monospace;
@@ -27,9 +32,8 @@
     scroll-behavior: smooth;
   }
 
-  /* the mobile nav is sticky, so anchored sections must clear it when jumped to */
   section[id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 1rem;
   }
 
   body {
@@ -50,7 +54,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-amber);
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
 }
@@ -85,11 +89,5 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-@media (hover: hover) {
-  .gate-panels:has(> a:hover) > a:not(:hover) {
-    opacity: 0.35;
   }
 }

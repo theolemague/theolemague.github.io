@@ -3,10 +3,10 @@ import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Color, Group, MathUtils, Mesh, MeshBasicMaterial, MeshStandardMaterial } from 'three';
 
-import { COLORS, Waypoint } from '../system';
+import { COLORS, Waypoint } from '../../utils/world-system';
 
 const RULE = new Color(COLORS.rule);
-const AMBER = new Color(COLORS.amber);
+const PRIMARY = new Color(COLORS.primary);
 const DARK = new Color(COLORS.canvas);
 
 interface PlanetProps {
@@ -44,13 +44,13 @@ const Planet = ({ waypoint, docked }: PlanetProps) => {
 
     // the wireframe shell warms from hairline grey to amber as the ring locks on
     const shell = shellRef.current.material as MeshBasicMaterial;
-    shell.color.lerpColors(RULE, AMBER, marked);
+    shell.color.lerpColors(RULE, PRIMARY, marked);
     shell.opacity = 0.55 + marked * 0.3;
 
     // barely any: emissive is in linear space, so even a sliver of amber reads as a
     // solid warm fill on a body this large. The ring and the shell mark the dock.
     const core = coreRef.current.material as MeshStandardMaterial;
-    core.emissive.lerpColors(DARK, AMBER, marked * 0.035);
+    core.emissive.lerpColors(DARK, PRIMARY, marked * 0.035);
 
     if (labelRef.current) {
       const toCamera = Math.hypot(state.camera.position.x - waypoint.position[0], state.camera.position.y, state.camera.position.z - waypoint.position[2]);
@@ -81,14 +81,14 @@ const Planet = ({ waypoint, docked }: PlanetProps) => {
       <group rotation={[Math.PI / 2, 0, 0]}>
         <mesh ref={ringRef}>
           <torusGeometry args={[waypoint.dockRadius * 0.82, 0.05, 6, 72, Math.PI * 1.45]} />
-          <meshBasicMaterial color={COLORS.amber} transparent opacity={0} />
+          <meshBasicMaterial color={COLORS.primary} transparent opacity={0} />
         </mesh>
       </group>
 
       {!docked && (
         <Html ref={labelRef} center distanceFactor={26} position={[0, waypoint.radius + 2.8, 0]} zIndexRange={[20, 0]} pointerEvents="none">
           <div className="flex items-center gap-2 whitespace-nowrap">
-            <span className="label text-amber-dim">{String(waypoint.order).padStart(2, '0')}</span>
+            <span className="label text-primary-dim">{String(waypoint.order).padStart(2, '0')}</span>
             <span className="label text-faint">{waypoint.label}</span>
           </div>
         </Html>

@@ -1,13 +1,7 @@
 {
   "gate": {
-    "intro": "Avant d'entrer",
-    "question": "Vous voulez la version sérieuse, ou pas sérieuse ?",
     "serious": "Version sérieuse",
-    "serious-hint": "Le portfolio propre. Mon parcours, mes projets, mes coordonnées. Celui qu'on envoie avec une candidature.",
-    "fun": "Version pas sérieuse",
-    "fun-hint": "Le même contenu, mais dans l'espace. Un vaisseau vous emmène d'une section à l'autre.",
-    "enter": "Entrer",
-    "footer": "Vous pourrez changer d'avis à tout moment."
+    "fun": "Version pas sérieuse"
   },
   "nav": {
     "intro": "Présentation",
@@ -45,7 +39,9 @@
     "switch-to-serious": "Version sérieuse",
     "switch-to-fun": "Version pas sérieuse",
     "back-to-gate": "Retour au choix",
-    "language": "Langue"
+    "language": "Langue",
+    "menu": "Menu",
+    "close": "Fermer"
   },
   "fun": {
     "hint": "Maintenez le clic ou glissez pour piloter · ZQSD ou flèches · les mondes s'ouvrent dans l'ordre, suivez la cible",
